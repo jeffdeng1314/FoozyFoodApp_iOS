@@ -7,22 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91807ED5273CB0BF002DE13F /* FoozyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91807ED4273CB0BF002DE13F /* FoozyApp.swift */; };
-		91807ED7273CB0BF002DE13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91807ED6273CB0BF002DE13F /* ContentView.swift */; };
-		91807ED9273CB0C0002DE13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91807ED8273CB0C0002DE13F /* Assets.xcassets */; };
-		91807EDC273CB0C0002DE13F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91807EDB273CB0C0002DE13F /* Preview Assets.xcassets */; };
+		915CE91B273CF3FE00D1125A /* FoozyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CE91A273CF3FE00D1125A /* FoozyApp.swift */; };
+		915CE91D273CF3FE00D1125A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CE91C273CF3FE00D1125A /* ContentView.swift */; };
+		915CE91F273CF3FF00D1125A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915CE91E273CF3FF00D1125A /* Assets.xcassets */; };
+		915CE922273CF3FF00D1125A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915CE921273CF3FF00D1125A /* Preview Assets.xcassets */; };
+		915CE924273CF3FF00D1125A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CE923273CF3FF00D1125A /* Persistence.swift */; };
+		915CE927273CF3FF00D1125A /* Foozy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 915CE925273CF3FF00D1125A /* Foozy.xcdatamodeld */; };
+		915CE931273CF3FF00D1125A /* FoozyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CE930273CF3FF00D1125A /* FoozyTests.swift */; };
+		915CE93B273CF3FF00D1125A /* FoozyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CE93A273CF3FF00D1125A /* FoozyUITests.swift */; };
+		915CE93D273CF3FF00D1125A /* FoozyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CE93C273CF3FF00D1125A /* FoozyUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		915CE92D273CF3FF00D1125A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 915CE90F273CF3FE00D1125A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 915CE916273CF3FE00D1125A;
+			remoteInfo = Foozy;
+		};
+		915CE937273CF3FF00D1125A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 915CE90F273CF3FE00D1125A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 915CE916273CF3FE00D1125A;
+			remoteInfo = Foozy;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		91807ED1273CB0BF002DE13F /* Foozy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foozy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		91807ED4273CB0BF002DE13F /* FoozyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyApp.swift; sourceTree = "<group>"; };
-		91807ED6273CB0BF002DE13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		91807ED8273CB0C0002DE13F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		91807EDB273CB0C0002DE13F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		915CE917273CF3FE00D1125A /* Foozy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foozy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		915CE91A273CF3FE00D1125A /* FoozyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyApp.swift; sourceTree = "<group>"; };
+		915CE91C273CF3FE00D1125A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		915CE91E273CF3FF00D1125A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		915CE921273CF3FF00D1125A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		915CE923273CF3FF00D1125A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		915CE926273CF3FF00D1125A /* Foozy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foozy.xcdatamodel; sourceTree = "<group>"; };
+		915CE92C273CF3FF00D1125A /* FoozyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoozyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		915CE930273CF3FF00D1125A /* FoozyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyTests.swift; sourceTree = "<group>"; };
+		915CE936273CF3FF00D1125A /* FoozyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoozyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		915CE93A273CF3FF00D1125A /* FoozyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITests.swift; sourceTree = "<group>"; };
+		915CE93C273CF3FF00D1125A /* FoozyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		91807ECE273CB0BF002DE13F /* Frameworks */ = {
+		915CE914273CF3FE00D1125A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CE929273CF3FF00D1125A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CE933273CF3FF00D1125A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,51 +75,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		91807EC8273CB0BF002DE13F = {
+		915CE90E273CF3FE00D1125A = {
 			isa = PBXGroup;
 			children = (
-				91807ED3273CB0BF002DE13F /* Foozy */,
-				91807ED2273CB0BF002DE13F /* Products */,
+				915CE919273CF3FE00D1125A /* Foozy */,
+				915CE92F273CF3FF00D1125A /* FoozyTests */,
+				915CE939273CF3FF00D1125A /* FoozyUITests */,
+				915CE918273CF3FE00D1125A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		91807ED2273CB0BF002DE13F /* Products */ = {
+		915CE918273CF3FE00D1125A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				91807ED1273CB0BF002DE13F /* Foozy.app */,
+				915CE917273CF3FE00D1125A /* Foozy.app */,
+				915CE92C273CF3FF00D1125A /* FoozyTests.xctest */,
+				915CE936273CF3FF00D1125A /* FoozyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		91807ED3273CB0BF002DE13F /* Foozy */ = {
+		915CE919273CF3FE00D1125A /* Foozy */ = {
 			isa = PBXGroup;
 			children = (
-				91807ED4273CB0BF002DE13F /* FoozyApp.swift */,
-				91807ED6273CB0BF002DE13F /* ContentView.swift */,
-				91807ED8273CB0C0002DE13F /* Assets.xcassets */,
-				91807EDA273CB0C0002DE13F /* Preview Content */,
+				915CE91A273CF3FE00D1125A /* FoozyApp.swift */,
+				915CE91C273CF3FE00D1125A /* ContentView.swift */,
+				915CE91E273CF3FF00D1125A /* Assets.xcassets */,
+				915CE923273CF3FF00D1125A /* Persistence.swift */,
+				915CE925273CF3FF00D1125A /* Foozy.xcdatamodeld */,
+				915CE920273CF3FF00D1125A /* Preview Content */,
 			);
 			path = Foozy;
 			sourceTree = "<group>";
 		};
-		91807EDA273CB0C0002DE13F /* Preview Content */ = {
+		915CE920273CF3FF00D1125A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				91807EDB273CB0C0002DE13F /* Preview Assets.xcassets */,
+				915CE921273CF3FF00D1125A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		915CE92F273CF3FF00D1125A /* FoozyTests */ = {
+			isa = PBXGroup;
+			children = (
+				915CE930273CF3FF00D1125A /* FoozyTests.swift */,
+			);
+			path = FoozyTests;
+			sourceTree = "<group>";
+		};
+		915CE939273CF3FF00D1125A /* FoozyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				915CE93A273CF3FF00D1125A /* FoozyUITests.swift */,
+				915CE93C273CF3FF00D1125A /* FoozyUITestsLaunchTests.swift */,
+			);
+			path = FoozyUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		91807ED0273CB0BF002DE13F /* Foozy */ = {
+		915CE916273CF3FE00D1125A /* Foozy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91807EDF273CB0C0002DE13F /* Build configuration list for PBXNativeTarget "Foozy" */;
+			buildConfigurationList = 915CE940273CF3FF00D1125A /* Build configuration list for PBXNativeTarget "Foozy" */;
 			buildPhases = (
-				91807ECD273CB0BF002DE13F /* Sources */,
-				91807ECE273CB0BF002DE13F /* Frameworks */,
-				91807ECF273CB0BF002DE13F /* Resources */,
+				915CE913273CF3FE00D1125A /* Sources */,
+				915CE914273CF3FE00D1125A /* Frameworks */,
+				915CE915273CF3FE00D1125A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +150,69 @@
 			);
 			name = Foozy;
 			productName = Foozy;
-			productReference = 91807ED1273CB0BF002DE13F /* Foozy.app */;
+			productReference = 915CE917273CF3FE00D1125A /* Foozy.app */;
 			productType = "com.apple.product-type.application";
+		};
+		915CE92B273CF3FF00D1125A /* FoozyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915CE943273CF3FF00D1125A /* Build configuration list for PBXNativeTarget "FoozyTests" */;
+			buildPhases = (
+				915CE928273CF3FF00D1125A /* Sources */,
+				915CE929273CF3FF00D1125A /* Frameworks */,
+				915CE92A273CF3FF00D1125A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				915CE92E273CF3FF00D1125A /* PBXTargetDependency */,
+			);
+			name = FoozyTests;
+			productName = FoozyTests;
+			productReference = 915CE92C273CF3FF00D1125A /* FoozyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		915CE935273CF3FF00D1125A /* FoozyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915CE946273CF3FF00D1125A /* Build configuration list for PBXNativeTarget "FoozyUITests" */;
+			buildPhases = (
+				915CE932273CF3FF00D1125A /* Sources */,
+				915CE933273CF3FF00D1125A /* Frameworks */,
+				915CE934273CF3FF00D1125A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				915CE938273CF3FF00D1125A /* PBXTargetDependency */,
+			);
+			name = FoozyUITests;
+			productName = FoozyUITests;
+			productReference = 915CE936273CF3FF00D1125A /* FoozyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		91807EC9273CB0BF002DE13F /* Project object */ = {
+		915CE90F273CF3FE00D1125A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
-					91807ED0273CB0BF002DE13F = {
+					915CE916273CF3FE00D1125A = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					915CE92B273CF3FF00D1125A = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 915CE916273CF3FE00D1125A;
+					};
+					915CE935273CF3FF00D1125A = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 915CE916273CF3FE00D1125A;
 					};
 				};
 			};
-			buildConfigurationList = 91807ECC273CB0BF002DE13F /* Build configuration list for PBXProject "Foozy" */;
+			buildConfigurationList = 915CE912273CF3FE00D1125A /* Build configuration list for PBXProject "Foozy" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +220,90 @@
 				en,
 				Base,
 			);
-			mainGroup = 91807EC8273CB0BF002DE13F;
-			productRefGroup = 91807ED2273CB0BF002DE13F /* Products */;
+			mainGroup = 915CE90E273CF3FE00D1125A;
+			productRefGroup = 915CE918273CF3FE00D1125A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				91807ED0273CB0BF002DE13F /* Foozy */,
+				915CE916273CF3FE00D1125A /* Foozy */,
+				915CE92B273CF3FF00D1125A /* FoozyTests */,
+				915CE935273CF3FF00D1125A /* FoozyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		91807ECF273CB0BF002DE13F /* Resources */ = {
+		915CE915273CF3FE00D1125A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91807EDC273CB0C0002DE13F /* Preview Assets.xcassets in Resources */,
-				91807ED9273CB0C0002DE13F /* Assets.xcassets in Resources */,
+				915CE922273CF3FF00D1125A /* Preview Assets.xcassets in Resources */,
+				915CE91F273CF3FF00D1125A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CE92A273CF3FF00D1125A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CE934273CF3FF00D1125A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		91807ECD273CB0BF002DE13F /* Sources */ = {
+		915CE913273CF3FE00D1125A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91807ED7273CB0BF002DE13F /* ContentView.swift in Sources */,
-				91807ED5273CB0BF002DE13F /* FoozyApp.swift in Sources */,
+				915CE924273CF3FF00D1125A /* Persistence.swift in Sources */,
+				915CE927273CF3FF00D1125A /* Foozy.xcdatamodeld in Sources */,
+				915CE91D273CF3FE00D1125A /* ContentView.swift in Sources */,
+				915CE91B273CF3FE00D1125A /* FoozyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CE928273CF3FF00D1125A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915CE931273CF3FF00D1125A /* FoozyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CE932273CF3FF00D1125A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915CE93D273CF3FF00D1125A /* FoozyUITestsLaunchTests.swift in Sources */,
+				915CE93B273CF3FF00D1125A /* FoozyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		915CE92E273CF3FF00D1125A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 915CE916273CF3FE00D1125A /* Foozy */;
+			targetProxy = 915CE92D273CF3FF00D1125A /* PBXContainerItemProxy */;
+		};
+		915CE938273CF3FF00D1125A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 915CE916273CF3FE00D1125A /* Foozy */;
+			targetProxy = 915CE937273CF3FF00D1125A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		91807EDD273CB0C0002DE13F /* Debug */ = {
+		915CE93E273CF3FF00D1125A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -206,7 +364,7 @@
 			};
 			name = Debug;
 		};
-		91807EDE273CB0C0002DE13F /* Release */ = {
+		915CE93F273CF3FF00D1125A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,7 +419,7 @@
 			};
 			name = Release;
 		};
-		91807EE0273CB0C0002DE13F /* Debug */ = {
+		915CE941273CF3FF00D1125A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -275,10 +433,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -288,11 +444,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		91807EE1273CB0C0002DE13F /* Release */ = {
+		915CE942273CF3FF00D1125A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -306,10 +462,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,32 +473,159 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		915CE944273CF3FF00D1125A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BZ7QMGUV48;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffdeng.FoozyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foozy.app/Foozy";
+			};
+			name = Debug;
+		};
+		915CE945273CF3FF00D1125A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BZ7QMGUV48;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffdeng.FoozyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foozy.app/Foozy";
+			};
+			name = Release;
+		};
+		915CE947273CF3FF00D1125A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BZ7QMGUV48;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffdeng.FoozyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Foozy;
+			};
+			name = Debug;
+		};
+		915CE948273CF3FF00D1125A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BZ7QMGUV48;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffdeng.FoozyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Foozy;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		91807ECC273CB0BF002DE13F /* Build configuration list for PBXProject "Foozy" */ = {
+		915CE912273CF3FE00D1125A /* Build configuration list for PBXProject "Foozy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91807EDD273CB0C0002DE13F /* Debug */,
-				91807EDE273CB0C0002DE13F /* Release */,
+				915CE93E273CF3FF00D1125A /* Debug */,
+				915CE93F273CF3FF00D1125A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91807EDF273CB0C0002DE13F /* Build configuration list for PBXNativeTarget "Foozy" */ = {
+		915CE940273CF3FF00D1125A /* Build configuration list for PBXNativeTarget "Foozy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91807EE0273CB0C0002DE13F /* Debug */,
-				91807EE1273CB0C0002DE13F /* Release */,
+				915CE941273CF3FF00D1125A /* Debug */,
+				915CE942273CF3FF00D1125A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915CE943273CF3FF00D1125A /* Build configuration list for PBXNativeTarget "FoozyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915CE944273CF3FF00D1125A /* Debug */,
+				915CE945273CF3FF00D1125A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915CE946273CF3FF00D1125A /* Build configuration list for PBXNativeTarget "FoozyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915CE947273CF3FF00D1125A /* Debug */,
+				915CE948273CF3FF00D1125A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		915CE925273CF3FF00D1125A /* Foozy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				915CE926273CF3FF00D1125A /* Foozy.xcdatamodel */,
+			);
+			currentVersion = 915CE926273CF3FF00D1125A /* Foozy.xcdatamodel */;
+			path = Foozy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = 91807EC9273CB0BF002DE13F /* Project object */;
+	rootObject = 915CE90F273CF3FE00D1125A /* Project object */;
 }
