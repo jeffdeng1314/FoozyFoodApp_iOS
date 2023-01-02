@@ -9,13 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack{
+            
+            // Top Stack
+            HStack{
+                Button(action: {}) {
+                    Image("user")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 45)
+                }
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    Image("setting")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 45)
+                }
+            }.padding(.horizontal)
+            
+            // Card
+            Image("sakura-noodle-house")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+            // Bottom Stack
+            HStack{
+                
+            }
         }
-        .padding()
+//        .padding()
     }
 }
 
