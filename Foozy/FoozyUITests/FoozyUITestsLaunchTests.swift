@@ -2,12 +2,12 @@
 //  FoozyUITestsLaunchTests.swift
 //  FoozyUITests
 //
-//  Created by Jeff Deng on 11/10/21.
+//  Created by Jeff Deng on 1/2/23.
 //
 
 import XCTest
 
-class FoozyUITestsLaunchTests: XCTestCase {
+final class FoozyUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -2,12 +2,12 @@
 //  FoozyUITests.swift
 //  FoozyUITests
 //
-//  Created by Jeff Deng on 11/10/21.
+//  Created by Jeff Deng on 1/2/23.
 //
 
 import XCTest
 
-class FoozyUITests: XCTestCase {
+final class FoozyUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,7 +27,6 @@ class FoozyUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
