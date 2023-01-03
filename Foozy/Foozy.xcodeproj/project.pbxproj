@@ -14,6 +14,7 @@
 		910B92532962D95100CE6912 /* FoozyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B92522962D95100CE6912 /* FoozyTests.swift */; };
 		910B925D2962D95100CE6912 /* FoozyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B925C2962D95100CE6912 /* FoozyUITests.swift */; };
 		910B925F2962D95100CE6912 /* FoozyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */; };
+		910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B926C2963BCDF00CE6912 /* StarsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		910B92582962D95100CE6912 /* FoozyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoozyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		910B925C2962D95100CE6912 /* FoozyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITests.swift; sourceTree = "<group>"; };
 		910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		910B926C2963BCDF00CE6912 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		910B92402962D94F00CE6912 /* Foozy */ = {
 			isa = PBXGroup;
 			children = (
+				910B926B2963BCCA00CE6912 /* Helpers */,
 				910B92412962D94F00CE6912 /* FoozyApp.swift */,
 				910B92432962D94F00CE6912 /* ContentView.swift */,
 				910B92452962D95100CE6912 /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */,
 			);
 			path = FoozyUITests;
+			sourceTree = "<group>";
+		};
+		910B926B2963BCCA00CE6912 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				910B926C2963BCDF00CE6912 /* StarsView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			files = (
 				910B92442962D94F00CE6912 /* ContentView.swift in Sources */,
 				910B92422962D94F00CE6912 /* FoozyApp.swift in Sources */,
+				910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
