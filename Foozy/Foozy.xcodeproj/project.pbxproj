@@ -15,6 +15,9 @@
 		910B925D2962D95100CE6912 /* FoozyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B925C2962D95100CE6912 /* FoozyUITests.swift */; };
 		910B925F2962D95100CE6912 /* FoozyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */; };
 		910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B926C2963BCDF00CE6912 /* StarsView.swift */; };
+		910B92702963D28900CE6912 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B926F2963D28900CE6912 /* Card.swift */; };
+		910B927329640B4400CE6912 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927229640B4400CE6912 /* CardData.swift */; };
+		910B927829640E9200CE6912 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927729640E9200CE6912 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		910B925C2962D95100CE6912 /* FoozyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITests.swift; sourceTree = "<group>"; };
 		910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		910B926C2963BCDF00CE6912 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
+		910B926F2963D28900CE6912 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		910B927229640B4400CE6912 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		910B927729640E9200CE6912 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +102,11 @@
 		910B92402962D94F00CE6912 /* Foozy */ = {
 			isa = PBXGroup;
 			children = (
+				910B927429640E1E00CE6912 /* Views */,
+				910B927129640B3700CE6912 /* Data */,
+				910B926E2963D26E00CE6912 /* Models */,
 				910B926B2963BCCA00CE6912 /* Helpers */,
 				910B92412962D94F00CE6912 /* FoozyApp.swift */,
-				910B92432962D94F00CE6912 /* ContentView.swift */,
 				910B92452962D95100CE6912 /* Assets.xcassets */,
 				910B92472962D95100CE6912 /* Preview Content */,
 			);
@@ -136,6 +144,31 @@
 				910B926C2963BCDF00CE6912 /* StarsView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		910B926E2963D26E00CE6912 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				910B926F2963D28900CE6912 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		910B927129640B3700CE6912 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				910B927229640B4400CE6912 /* CardData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		910B927429640E1E00CE6912 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				910B92432962D94F00CE6912 /* ContentView.swift */,
+				910B927729640E9200CE6912 /* CardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910B927329640B4400CE6912 /* CardData.swift in Sources */,
 				910B92442962D94F00CE6912 /* ContentView.swift in Sources */,
 				910B92422962D94F00CE6912 /* FoozyApp.swift in Sources */,
 				910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */,
+				910B927829640E9200CE6912 /* CardView.swift in Sources */,
+				910B92702963D28900CE6912 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
