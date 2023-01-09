@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// reference: https://stackoverflow.com/questions/64379079/how-to-present-accurate-star-rating-using-swiftui
 struct StarsView: View {
     var rating: CGFloat
     var maxRating: Int

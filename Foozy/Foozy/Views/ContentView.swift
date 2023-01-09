@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var homeViewModel = HomeViewModel()
+    
     var body: some View {
         VStack{
             // Top Stack
@@ -31,9 +33,19 @@ struct ContentView: View {
             
             // Card
             ZStack{
-                ForEach(cardData.reversed()) { card in
-                    CardView(card: card)
-                        .padding(8)
+                if let businesses = homeViewModel.displayBusinesses {
+                    if businesses.isEmpty {
+                        let _ = homeViewModel.assignFetchedToDisplayBusinesses()
+//                        Text("Please come back later")
+//                            .font(.caption)
+//                            .foregroundColor(.gray)
+                    }
+                    else {
+                        ForEach(businesses) { business in
+                            CardView(card: business, homeViewModel: homeViewModel)
+                                .padding(8)
+                        }
+                    }
                 }
             }
             
@@ -65,6 +77,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(HomeViewModel())
     }
 }
 

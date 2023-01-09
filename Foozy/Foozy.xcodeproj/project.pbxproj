@@ -16,8 +16,10 @@
 		910B925F2962D95100CE6912 /* FoozyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */; };
 		910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B926C2963BCDF00CE6912 /* StarsView.swift */; };
 		910B92702963D28900CE6912 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B926F2963D28900CE6912 /* Card.swift */; };
-		910B927329640B4400CE6912 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927229640B4400CE6912 /* CardData.swift */; };
+		910B927329640B4400CE6912 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927229640B4400CE6912 /* HomeViewModel.swift */; };
 		910B927829640E9200CE6912 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927729640E9200CE6912 /* CardView.swift */; };
+		910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B9279296BCF3E00CE6912 /* ErrorView.swift */; };
+		910B927C296C01EC00CE6912 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927B296C01EC00CE6912 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +52,10 @@
 		910B925E2962D95100CE6912 /* FoozyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoozyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		910B926C2963BCDF00CE6912 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		910B926F2963D28900CE6912 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		910B927229640B4400CE6912 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		910B927229640B4400CE6912 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		910B927729640E9200CE6912 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		910B9279296BCF3E00CE6912 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		910B927B296C01EC00CE6912 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				910B927429640E1E00CE6912 /* Views */,
-				910B927129640B3700CE6912 /* Data */,
+				910B927129640B3700CE6912 /* ViewModel */,
 				910B926E2963D26E00CE6912 /* Models */,
 				910B926B2963BCCA00CE6912 /* Helpers */,
 				910B92412962D94F00CE6912 /* FoozyApp.swift */,
@@ -141,7 +145,7 @@
 		910B926B2963BCCA00CE6912 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				910B926C2963BCDF00CE6912 /* StarsView.swift */,
+				910B9279296BCF3E00CE6912 /* ErrorView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -154,17 +158,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		910B927129640B3700CE6912 /* Data */ = {
+		910B927129640B3700CE6912 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				910B927229640B4400CE6912 /* CardData.swift */,
+				910B927229640B4400CE6912 /* HomeViewModel.swift */,
+				910B927B296C01EC00CE6912 /* NetworkManager.swift */,
 			);
-			path = Data;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		910B927429640E1E00CE6912 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				910B926C2963BCDF00CE6912 /* StarsView.swift */,
 				910B92432962D94F00CE6912 /* ContentView.swift */,
 				910B927729640E9200CE6912 /* CardView.swift */,
 			);
@@ -301,10 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				910B927329640B4400CE6912 /* CardData.swift in Sources */,
+				910B927329640B4400CE6912 /* HomeViewModel.swift in Sources */,
 				910B92442962D94F00CE6912 /* ContentView.swift in Sources */,
 				910B92422962D94F00CE6912 /* FoozyApp.swift in Sources */,
 				910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */,
+				910B927C296C01EC00CE6912 /* NetworkManager.swift in Sources */,
+				910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */,
 				910B927829640E9200CE6912 /* CardView.swift in Sources */,
 				910B92702963D28900CE6912 /* Card.swift in Sources */,
 			);

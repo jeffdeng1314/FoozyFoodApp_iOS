@@ -9,38 +9,12 @@ import SwiftUI
 struct CardView: View {
     
     @State var card: Card
+    @ObservedObject var homeViewModel: HomeViewModel
     
-    // MARK: - Drawing Constants
-    let cardGradient = Gradient(colors: [Color.black.opacity(0), Color.black.opacity(0.5)])
     var body: some View {
         ZStack(alignment: .leading) {
-            Image(card.image)
-                .resizable()
-            LinearGradient(gradient: cardGradient, startPoint: .top, endPoint: .bottom)
-            
-            VStack{
-                Spacer()
-                VStack(alignment: .leading){
-                    
-                    // star rating
-                    StarsView(rating: card.rating, maxRating: 5)
-                        .frame(width: 100)
-                        .padding(.bottom, -10)
-                    
-                    // business name
-                    Text(card.name)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .minimumScaleFactor(0.01)
-                        .lineLimit(1)
-                    
-                    // categories
-                    Text(card.categories.joined(separator: ","))
-                }
-            }
-            .padding()
-            .foregroundColor(.white)
-            
+            DisplayCard(card: card)
+            DisplayCardInfo(card: card)
         }
         .cornerRadius(10)
         // step 1 - ZStack follows the coordinate of the card
@@ -72,6 +46,15 @@ struct CardView: View {
                         default:
                             card.x = 0; card.y = 0
                         }
+                        
+                        if card.x == 500 || card.x == -500 {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                if let _ = homeViewModel.displayBusinesses.last {
+                                    let _ = homeViewModel.updateBusinesses(card: card)
+                                }
+                            }
+//                            nonEmptyCardList = homeViewModel.updateBusinesses(card: card)
+                        }
                     }
                 })
         )
@@ -81,9 +64,57 @@ struct CardView: View {
 
 
 struct CardView_Previews: PreviewProvider {
-    static var card: Card = Card(name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, categories: ["food","trunk"])
+    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, categories: ["food","trunk"])
     static var previews: some View {
-        CardView(card: card)
-            .previewLayout(.sizeThatFits)
+        CardView(card: card, homeViewModel: HomeViewModel())
+    }
+}
+
+struct DisplayCardInfo: View {
+    let card: Card
+    
+    var body: some View {
+        VStack{
+            Spacer()
+            VStack(alignment: .leading){
+                
+                // star rating
+                StarsView(rating: card.rating, maxRating: 5)
+                    .frame(width: 100)
+                    .padding(.bottom, -10)
+                
+                // business name
+                Text(card.name)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .minimumScaleFactor(0.01)
+                    .lineLimit(1)
+                
+                // categories
+                Text(card.categories.joined(separator: ","))
+            }
+        }
+        .padding()
+        .foregroundColor(.white)
+    }
+}
+
+struct AddCardGradient: View {
+    // MARK: - Drawing Constants
+    let cardGradient = Gradient(colors: [Color.black.opacity(0), Color.black.opacity(0.5)])
+    
+    var body: some View {
+        LinearGradient(gradient: cardGradient, startPoint: .top, endPoint: .bottom)
+    }
+}
+
+struct DisplayCard: View {
+    let card: Card
+    var body: some View {
+        ZStack {
+            Image(card.image)
+                .resizable()
+            AddCardGradient()
+        }
     }
 }
