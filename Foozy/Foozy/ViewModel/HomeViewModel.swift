@@ -14,12 +14,12 @@ class HomeViewModel: ObservableObject {
     @ObservedObject var networkManager: NetworkManager = NetworkManager()
     
     init() {
-        fetchedBusinesses = [
-            Card(businessId: "123", name: "Sakura Noodle House", image: "sakura-noodle-house", rating: 4.5, categories: ["Ramen, Noodle, Food Trucks"]),
-            Card(businessId: "456", name: "Bobablastic", image: "bobablastic", rating: 2.5, categories: ["Bubble Tea, Coffee & Tea, Food Trucks"])
-        ]
+//        fetchedBusinesses = [
+//            Card(businessId: "123", name: "Sakura Noodle House", image: "sakura-noodle-house", rating: 4.5, categories: ["Ramen, Noodle, Food Trucks"]),
+//            Card(businessId: "456", name: "Bobablastic", image: "bobablastic", rating: 2.5, categories: ["Bubble Tea, Coffee & Tea, Food Trucks"])
+//        ]
         
-        displayBusinesses = fetchedBusinesses
+        displayBusinesses = networkManager.fetchedBusinesses
 //        assignFetchedToDisplayBusinesses()
     }
     

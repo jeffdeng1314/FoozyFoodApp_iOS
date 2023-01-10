@@ -46,18 +46,60 @@ struct CardView: View {
                         default:
                             card.x = 0; card.y = 0
                         }
-                        
-                        if card.x == 500 || card.x == -500 {
-                            // The delay time is based on the animation
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                if let _ = homeViewModel.displayBusinesses.last {
-                                    let _ = homeViewModel.updateBusinesses(card: card)
-                                }
-                            }
-                        }
+                        swipeUpdate(position: card.x, card: card)
                     }
                 })
         )
+        // Receiving Notifications Posted...
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("ACTIONFROMBUTTON"), object: nil)) {
+            data in
+            
+            guard let info = data.userInfo else{
+                return
+            }
+            
+            let id = info["id"] as? String ?? ""
+            let rightSwipe = info["rightSwipe"] as? Bool ?? false
+            let width = CGFloat(500)
+            let degree = CGFloat(12)
+            let height = CGFloat(0)
+            
+            if card.businessId == id {
+                withAnimation(.default) {
+                    if rightSwipe {
+                        card.x = width
+                        card.y = height
+                        card.degree = degree
+                    }
+                    else {
+                        card.x = (-width)
+                        card.y = height
+                        card.degree = (-degree)
+                    }
+                    
+                }
+                swipeUpdate(position: card.x, card: card)
+            }
+        }
+    }
+    
+    func swipeUpdate(position cardPosition: CGFloat, card: Card) {
+        switch cardPosition {
+        case 500...:
+            let _ = print("Swiped right! Like")
+        case ...(-500):
+            let _ = print("Swiped left! Dislike")
+        default:
+            return
+        }
+        
+        // The delay time is based on the animation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            if let _ = homeViewModel.displayBusinesses.last {
+                let _ = homeViewModel.updateBusinesses(card: card)
+            }
+        }
+        
     }
 }
 

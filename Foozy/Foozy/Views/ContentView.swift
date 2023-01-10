@@ -41,9 +41,6 @@ struct ContentView: View {
                 if let businesses = homeViewModel.displayBusinesses {
                     if businesses.isEmpty {
 //                        let _ = homeViewModel.assignFetchedToDisplayBusinesses()
-//                        Text("Please come back later")
-//                            .font(.caption)
-//                            .foregroundColor(.gray)
                         ErrorView()
                     }
                     else {
@@ -64,7 +61,9 @@ struct ContentView: View {
             
             // Bottom Stack
             HStack(spacing: 30){
-                Button(action: {}) {
+                Button(action: {
+                    doSwipe()
+                }) {
                     Image("nope")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -76,7 +75,9 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 45)
                 }
-                Button(action: {}) {
+                Button(action: {
+                    doSwipe(rightSwipe: true)
+                }) {
                     Image("green-heart")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -89,6 +90,20 @@ struct ContentView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+    
+    // removing cards when click to swipe
+    func doSwipe(rightSwipe: Bool = false) {
+        // swipe
+        guard let last = homeViewModel.displayBusinesses.last else {
+            return
+        }
+        
+        // Use notification to post and receive in the CardView
+        NotificationCenter.default.post(name: Notification.Name("ACTIONFROMBUTTON"), object: nil, userInfo: [
+            "id": last.businessId,
+            "rightSwipe": rightSwipe
+        ])
     }
 }
 
