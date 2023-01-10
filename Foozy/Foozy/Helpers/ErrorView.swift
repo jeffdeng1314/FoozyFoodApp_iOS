@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ErrorView: View {
     var body: some View {
-        Text("You have explored all the restaurants nearby!")
+        ZStack(alignment: .leading) {
+            Text("You have explored all the restaurants nearby!")
+                .font(.caption)
+                .foregroundColor(.gray)
+        }
+        .cornerRadius(10)
     }
 }
 

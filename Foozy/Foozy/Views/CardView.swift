@@ -9,7 +9,7 @@ import SwiftUI
 struct CardView: View {
     
     @State var card: Card
-    @ObservedObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -48,12 +48,12 @@ struct CardView: View {
                         }
                         
                         if card.x == 500 || card.x == -500 {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            // The delay time is based on the animation
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                 if let _ = homeViewModel.displayBusinesses.last {
                                     let _ = homeViewModel.updateBusinesses(card: card)
                                 }
                             }
-//                            nonEmptyCardList = homeViewModel.updateBusinesses(card: card)
                         }
                     }
                 })
@@ -66,7 +66,7 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, categories: ["food","trunk"])
     static var previews: some View {
-        CardView(card: card, homeViewModel: HomeViewModel())
+        CardView(card: card)
     }
 }
 
