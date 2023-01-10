@@ -56,6 +56,8 @@
 		910B927729640E9200CE6912 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		910B9279296BCF3E00CE6912 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		910B927B296C01EC00CE6912 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		910B927E296D5DFF00CE6912 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		910B927F296D63F600CE6912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		910B92352962D94F00CE6912 = {
 			isa = PBXGroup;
 			children = (
+				910B927D296D5DA900CE6912 /* APIKeys */,
 				910B92402962D94F00CE6912 /* Foozy */,
 				910B92512962D95100CE6912 /* FoozyTests */,
 				910B925B2962D95100CE6912 /* FoozyUITests */,
@@ -106,6 +109,7 @@
 		910B92402962D94F00CE6912 /* Foozy */ = {
 			isa = PBXGroup;
 			children = (
+				910B927F296D63F600CE6912 /* Info.plist */,
 				910B927429640E1E00CE6912 /* Views */,
 				910B927129640B3700CE6912 /* ViewModel */,
 				910B926E2963D26E00CE6912 /* Models */,
@@ -175,6 +179,14 @@
 				910B927729640E9200CE6912 /* CardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		910B927D296D5DA900CE6912 /* APIKeys */ = {
+			isa = PBXGroup;
+			children = (
+				910B927E296D5DFF00CE6912 /* Config.xcconfig */,
+			);
+			path = APIKeys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +365,7 @@
 /* Begin XCBuildConfiguration section */
 		910B92602962D95100CE6912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 910B927E296D5DFF00CE6912 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -476,11 +489,13 @@
 				DEVELOPMENT_TEAM = VZ42KUKVJT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Foozy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -507,11 +522,13 @@
 				DEVELOPMENT_TEAM = VZ42KUKVJT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Foozy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

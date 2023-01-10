@@ -1,0 +1,16 @@
+//
+//  Config.xcconfig
+//  Foozy
+//
+//  Created by Jeff Deng on 1/10/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+// Yelp Fusion API
+YELP_CLIENT_ID = RaewgxJ4TLpAOKvzc-aATw
+YELP_API_KEY = vYgWcva7gyniJpaK5V-U6SntmELvBlQr-ajWO3cjxK1fkrSDygZvUCtXdR7omZm956svZ4i6L3ZR2xk5GJduvaDFFr07fC1uxRPlBmpRkf-bFOh2HZaEyPPe9TVyYnYx
+
+
