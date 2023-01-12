@@ -20,6 +20,7 @@
 		910B927829640E9200CE6912 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927729640E9200CE6912 /* CardView.swift */; };
 		910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B9279296BCF3E00CE6912 /* ErrorView.swift */; };
 		910B927C296C01EC00CE6912 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927B296C01EC00CE6912 /* NetworkManager.swift */; };
+		91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B136A9296FA05100AE24CB /* BusinessesData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		910B927B296C01EC00CE6912 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		910B927E296D5DFF00CE6912 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		910B927F296D63F600CE6912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		91B136A9296FA05100AE24CB /* BusinessesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				910B926F2963D28900CE6912 /* Card.swift */,
+				91B136A9296FA05100AE24CB /* BusinessesData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */,
 				910B927C296C01EC00CE6912 /* NetworkManager.swift in Sources */,
 				910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */,
+				91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */,
 				910B927829640E9200CE6912 /* CardView.swift in Sources */,
 				910B92702963D28900CE6912 /* Card.swift in Sources */,
 			);
@@ -414,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -469,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -499,7 +503,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +539,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

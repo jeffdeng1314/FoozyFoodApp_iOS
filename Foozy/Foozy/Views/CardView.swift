@@ -154,8 +154,26 @@ struct DisplayCard: View {
     let card: Card
     var body: some View {
         ZStack {
-            Image(card.image)
-                .resizable()
+            // Only iOS 15+. Reference: https://stackoverflow.com/questions/60677622/how-to-display-image-from-a-url-in-swiftui
+            AsyncImage(url: URL(string: card.image)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image.resizable()
+//                        .aspectRatio(contentMode: .fit)
+                case .failure:
+                    Image(systemName: "photo")
+                @unknown default:
+                    // Since the AsyncImagePhase enum isn't frozen,
+                    // we need to add this currently unused fallback
+                    // to handle any new cases that might be added
+                    // in the future:
+                    EmptyView()
+                }
+            }
+            //            Image(card.image)
+            //                .resizable()
             AddCardGradient()
         }
     }
