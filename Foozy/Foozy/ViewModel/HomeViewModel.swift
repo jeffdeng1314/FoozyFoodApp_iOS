@@ -20,13 +20,15 @@ class HomeViewModel: ObservableObject {
 //        ]
         
         displayBusinesses = networkManager.fetchedBusinesses
-//        assignFetchedToDisplayBusinesses()
+
     }
     
     func assignFetchedToDisplayBusinesses() {
         // storing it in the displayBusinesses
         // where it updates/remove the businesses through user interaction
-        displayBusinesses = networkManager.fetchedBusinesses
+//        displayBusinesses = networkManager.fetchedBusinesses
+        print("inside assignFetchedToDisplayBusinesses")
+        networkManager.fetchYelpBusinesses(cityName: "Portland")
     }
     
     func updateBusinesses(card business: Card) {

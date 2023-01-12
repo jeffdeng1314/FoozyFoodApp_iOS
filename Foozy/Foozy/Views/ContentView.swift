@@ -40,7 +40,7 @@ struct ContentView: View {
             ZStack{
                 if let businesses = homeViewModel.displayBusinesses {
                     if businesses.isEmpty {
-//                        let _ = homeViewModel.assignFetchedToDisplayBusinesses()
+                        let _ = homeViewModel.assignFetchedToDisplayBusinesses()
                         ErrorView()
                     }
                     else {
