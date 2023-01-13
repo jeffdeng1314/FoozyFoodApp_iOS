@@ -25,7 +25,7 @@ struct StarsView: View {
             }
             stars.overlay(
                 GeometryReader { g in
-                    let width = rating / CGFloat(maxRating) * (g.size.width * 1.2)
+                    let width = rating / CGFloat(maxRating) * (g.size.width)
                     ZStack(alignment: .leading) {
                         Rectangle()
                             .frame(width: width)
@@ -38,8 +38,9 @@ struct StarsView: View {
             
             Text(String(reviewCounts))
                 .font(.caption)
-                .fontWeight(.bold)
+//                .fontWeight(.bold)
                 .aspectRatio(contentMode: .fit)
+//                .frame(width: 20)
         }
     }
 }

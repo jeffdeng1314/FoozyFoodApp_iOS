@@ -30,7 +30,7 @@ class HomeViewModel: ObservableObject {
           "Authorization": "Bearer \(apiKey)"
         ]
         
-        queryLimit = 3
+        queryLimit = 30
         
         categories = "food,foodtrucks,bubbletea"
         

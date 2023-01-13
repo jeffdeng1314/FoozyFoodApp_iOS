@@ -122,7 +122,7 @@ struct DisplayCardInfo: View {
                 
                 // star rating
                 StarsView(rating: card.rating, maxRating: 5, reviewCounts: card.reviewCounts)
-                    .frame(width: 100)
+                    .frame(width: 120)
                     .padding(.bottom, -10)
                 
                 // business name
