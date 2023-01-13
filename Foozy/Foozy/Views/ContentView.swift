@@ -49,9 +49,7 @@ struct ContentView: View {
                             ErrorView()
                         }
                         else {
-//                            let _ = print("displayBusinesses: \(homeViewModel.displayBusinesses.count)")
                             ForEach(businesses) { business in
-//                                let _ = print("business name: \(business.name)")
                                CardView(card: business)
                                    .environmentObject(homeViewModel)
                                    .padding(8)

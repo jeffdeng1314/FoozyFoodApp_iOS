@@ -16,6 +16,7 @@ struct Businesses: Decodable {
     let name: String
     let image_url: String
     let rating: Double
+    let review_count: Int
     let categories: [Categories]
 }
 

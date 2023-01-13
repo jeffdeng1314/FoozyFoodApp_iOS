@@ -14,6 +14,7 @@ struct Card: Identifiable {
     let name: String
     let image: String
     let rating: CGFloat
+    let reviewCounts: Int
     let categories: [String]
     
     // Card x position

@@ -106,7 +106,7 @@ struct CardView: View {
 
 
 struct CardView_Previews: PreviewProvider {
-    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, categories: ["food","trunk"])
+    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
         CardView(card: card)
     }
@@ -121,7 +121,7 @@ struct DisplayCardInfo: View {
             VStack(alignment: .leading){
                 
                 // star rating
-                StarsView(rating: card.rating, maxRating: 5)
+                StarsView(rating: card.rating, maxRating: 5, reviewCounts: card.reviewCounts)
                     .frame(width: 100)
                     .padding(.bottom, -10)
                 
@@ -133,7 +133,7 @@ struct DisplayCardInfo: View {
                     .lineLimit(1)
                 
                 // categories
-                Text(card.categories.joined(separator: ","))
+                Text(card.categories.joined(separator: ", "))
             }
         }
         .padding()
@@ -172,8 +172,7 @@ struct DisplayCard: View {
                     EmptyView()
                 }
             }
-            //            Image(card.image)
-            //                .resizable()
+
             AddCardGradient()
         }
     }

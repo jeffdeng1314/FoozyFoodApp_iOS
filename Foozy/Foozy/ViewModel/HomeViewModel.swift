@@ -30,7 +30,7 @@ class HomeViewModel: ObservableObject {
           "Authorization": "Bearer \(apiKey)"
         ]
         
-        queryLimit = 50
+        queryLimit = 3
         
         categories = "food,foodtrucks,bubbletea"
         
@@ -41,22 +41,8 @@ class HomeViewModel: ObservableObject {
 //            Card(businessId: "456", name: "Bobablastic", image: "https://s3-media1.fl.yelpcdn.com/bphoto/tHEQNUQm8COZ9r0mXPAj_A/o.jpg", rating: 2.5, categories: ["Bubble Tea, Coffee & Tea, Food Trucks"])
 //        ]
        
-        displayBusinesses = fetchedBusinesses ?? []
     }
     
-    func assignFetchedToDisplayBusinesses() {
-        // storing it in the displayBusinesses
-        // where it updates/remove the businesses through user interaction
-//        displayBusinesses = networkManager.fetchedBusinesses
-        DispatchQueue.main.async { [weak self] in
-            let merged = (self?.fetchedBusinesses ?? []) + self!.displayBusinesses
-            self!.displayBusinesses = merged
-            print("merged: \(merged)")
-        }
-//        DispatchQueue.main.async {
-//            self.displayBusinesses += self.fetchedBusinesses ?? []
-//        }
-    }
     
     func updateBusinesses(card business: Card) {
         print("card: \(business.name)")
@@ -100,10 +86,10 @@ class HomeViewModel: ObservableObject {
                 if let safeData = data {
                     if let cards = self?.parseJSON(safeData){
                         DispatchQueue.main.async {
-                            self?.displayBusinesses = cards + self!.displayBusinesses
+                            let merged = cards + self!.displayBusinesses
+                            self?.displayBusinesses = merged.reversed()
                             self!.isLoading = false
                         }
-//
                         return
                     }
                 }
@@ -136,11 +122,11 @@ class HomeViewModel: ObservableObject {
                 }
                 
                 let card = Card(businessId: business.id, name: business.name, image:
-                                    business.image_url, rating: business.rating, categories: categories )
+                                    business.image_url, rating: business.rating, reviewCounts: business.review_count, categories: categories )
                 
                 cards.append(card)
             }
-//            print("!!!fetched cards: \(cards)\n")
+            
             return cards
             
         } catch {

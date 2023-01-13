@@ -99,7 +99,7 @@ struct NetworkManager {
                 }
                 
                 let card = Card(businessId: business.id, name: business.name, image:
-                                    business.image_url, rating: business.rating, categories: categories )
+                                    business.image_url, rating: business.rating, reviewCounts: business.review_count, categories: categories )
                 
                 cards.append(card)
             }
