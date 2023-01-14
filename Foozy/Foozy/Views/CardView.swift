@@ -106,7 +106,7 @@ struct CardView: View {
 
 
 struct CardView_Previews: PreviewProvider {
-    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, categories: ["food","trunk"])
+    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
         CardView(card: card)
     }
@@ -121,8 +121,8 @@ struct DisplayCardInfo: View {
             VStack(alignment: .leading){
                 
                 // star rating
-                StarsView(rating: card.rating, maxRating: 5)
-                    .frame(width: 100)
+                StarsView(rating: card.rating, maxRating: 5, reviewCounts: card.reviewCounts)
+                    .frame(width: 120)
                     .padding(.bottom, -10)
                 
                 // business name
@@ -133,7 +133,7 @@ struct DisplayCardInfo: View {
                     .lineLimit(1)
                 
                 // categories
-                Text(card.categories.joined(separator: ","))
+                Text(card.categories.joined(separator: ", "))
             }
         }
         .padding()
@@ -154,8 +154,25 @@ struct DisplayCard: View {
     let card: Card
     var body: some View {
         ZStack {
-            Image(card.image)
-                .resizable()
+            // Only iOS 15+. Reference: https://stackoverflow.com/questions/60677622/how-to-display-image-from-a-url-in-swiftui
+            AsyncImage(url: URL(string: card.image)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image.resizable()
+//                        .aspectRatio(contentMode: .fit)
+                case .failure:
+                    Image(systemName: "photo")
+                @unknown default:
+                    // Since the AsyncImagePhase enum isn't frozen,
+                    // we need to add this currently unused fallback
+                    // to handle any new cases that might be added
+                    // in the future:
+                    EmptyView()
+                }
+            }
+
             AddCardGradient()
         }
     }

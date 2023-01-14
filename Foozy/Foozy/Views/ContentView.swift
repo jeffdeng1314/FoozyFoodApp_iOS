@@ -38,25 +38,35 @@ struct ContentView: View {
             
             // Card
             ZStack{
-                if let businesses = homeViewModel.displayBusinesses {
-                    if businesses.isEmpty {
-//                        let _ = homeViewModel.assignFetchedToDisplayBusinesses()
-                        ErrorView()
-                    }
-                    else {
-                        ForEach(businesses) { business in
-                            CardView(card: business)
-                                .environmentObject(homeViewModel)
-                                .padding(8)
-                        }
-                    }
+                if homeViewModel.isLoading {
+                    let _ = print("loading?????????")
+                    ProgressView("Loading")
                 }
                 else {
-                    ProgressView()
+                    if let businesses = homeViewModel.displayBusinesses {
+                        
+                        if businesses.isEmpty {
+                            ErrorView()
+                        }
+                        else {
+                            ForEach(businesses) { business in
+                               CardView(card: business)
+                                   .environmentObject(homeViewModel)
+                                   .padding(8)
+                           }
+                           
+                        }
+                    }
+                    else {
+                        ProgressView()
+                    }
                 }
             }
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear{
+                homeViewModel.fetchYelpBusinesses(cityName: "Portland")
+            }
             
             
             // Bottom Stack
@@ -113,4 +123,3 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(HomeViewModel())
     }
 }
-
