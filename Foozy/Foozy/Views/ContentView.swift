@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel()
+    @State var isPrensentingDetailModal = false
     
     var body: some View {
         VStack{
@@ -53,6 +54,9 @@ struct ContentView: View {
                                CardView(card: business)
                                    .environmentObject(homeViewModel)
                                    .padding(8)
+                                   .onTapGesture {
+                                       self.isPrensentingDetailModal.toggle()
+                                   }
                            }
                            
                         }
@@ -79,12 +83,16 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 45)
                 }
-                Button(action: {}) {
+                
+                Button(action: {
+                    self.isPrensentingDetailModal.toggle()
+                }) {
                     Image("info")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 45)
                 }
+                
                 Button(action: {
                     doSwipe(rightSwipe: true)
                 }) {
@@ -100,6 +108,9 @@ struct ContentView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .sheet(isPresented: $isPrensentingDetailModal) {
+            DetailModal(isPresentingDetailModal: $isPrensentingDetailModal)
+        }
     }
     
     // removing cards when click to swipe
