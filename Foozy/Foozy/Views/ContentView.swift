@@ -110,6 +110,7 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .sheet(isPresented: $isPrensentingDetailModal) {
             DetailModal(isPresentingDetailModal: $isPrensentingDetailModal)
+            
         }
     }
     
