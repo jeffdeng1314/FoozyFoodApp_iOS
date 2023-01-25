@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct NetworkManager {
+struct DetailViewModel {
     // Storing all the fetched cards here
     
     let apiKey: String

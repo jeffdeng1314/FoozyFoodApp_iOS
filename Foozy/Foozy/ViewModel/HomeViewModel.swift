@@ -35,12 +35,6 @@ class HomeViewModel: ObservableObject {
         categories = "food,foodtrucks,bubbletea"
         
         url = "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(categories!)&limit=\(queryLimit!)"
-        
-//        fetchedBusinesses = [
-//            Card(businessId: "123", name: "Sakura Noodle House", image: "https://s3-media2.fl.yelpcdn.com/bphoto/oWB3Ph9n8bx7tNQ7mhrEzQ/o.jpg", rating: 4.5, categories: ["Ramen, Noodle, Food Trucks"]),
-//            Card(businessId: "456", name: "Bobablastic", image: "https://s3-media1.fl.yelpcdn.com/bphoto/tHEQNUQm8COZ9r0mXPAj_A/o.jpg", rating: 2.5, categories: ["Bubble Tea, Coffee & Tea, Food Trucks"])
-//        ]
-       
     }
     
     
