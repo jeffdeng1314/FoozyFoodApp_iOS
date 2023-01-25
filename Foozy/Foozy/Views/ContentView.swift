@@ -15,27 +15,30 @@ struct ContentView: View {
         VStack{
             // Top Stack
             HStack{
+
+                Image("foozy-word")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 70)
+
+                Spacer()
+
+//                Text("For You")
+//                    .fontWeight(.bold)
+//                    .font(.title)
+//                    .italic()
+                
+                Spacer()
+                
                 Button(action: {}) {
                     Image("user")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 40)
                 }
-                
-                Spacer()
-                Text("For You")
-                    .fontWeight(.bold)
-                    .font(.title)
-                Spacer()
-                
-                Button(action: {}) {
-                    Image("setting")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 40)
-                }
+                .padding()
             }
-            .padding()
+//            .padding()
             
             // Card
             ZStack{

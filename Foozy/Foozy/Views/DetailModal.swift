@@ -55,19 +55,6 @@ struct DetailModal: View {
                 .foregroundColor(Color(UIColor.systemBackground))
         }
         
-            
-            
-
-            
-        
-//        .padding(.top, -6)
-//        .background {
-//            ZStack {
-//                RoundedRectangle(cornerRadius: 20)
-//                Rectangle().frame(height: 400 / 2)
-//             }
-//            .foregroundColor(Color.white)
-//        }
 
     }
 }
