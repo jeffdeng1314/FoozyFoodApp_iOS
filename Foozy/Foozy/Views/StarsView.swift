@@ -38,9 +38,7 @@ struct StarsView: View {
             
             Text(String(reviewCounts))
                 .font(.caption)
-//                .fontWeight(.bold)
                 .aspectRatio(contentMode: .fit)
-//                .frame(width: 20)
         }
     }
 }

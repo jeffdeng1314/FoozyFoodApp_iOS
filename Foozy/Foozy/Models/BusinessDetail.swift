@@ -16,14 +16,14 @@ struct BusinessDetail {
     let price: String
     let hours: [Hour]
     let categories: [String]
-    let coordinates: [Coordinates]
+    let coordinates: [Coordinate]
     let address: [String]
     let url: String
     let isClosed: Bool
 }
 
 
-struct Coordinates {
+struct Coordinate {
     let latitude: String
     let longitude: String
 }
@@ -47,11 +47,11 @@ struct Phone {
 }
 
 struct Hour {
-    let open: [Open]
+    let open: [Schedule]
     let isOpenNow: Bool
 }
 
-struct Open {
+struct Schedule {
     let isOvernight: Bool
     let start: String
     let end: String

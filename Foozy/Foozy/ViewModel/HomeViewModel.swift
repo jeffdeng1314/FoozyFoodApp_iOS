@@ -87,9 +87,7 @@ class HomeViewModel: ObservableObject {
                         return
                     }
                 }
-                
-//                let httpResponse = response as? HTTPURLResponse
-//                  print(httpResponse!)
+
               
             })
             
@@ -127,6 +125,11 @@ class HomeViewModel: ObservableObject {
             print("Error while parsing JSON... error=\(error)")
         }
         return nil
+    }
+    
+    func setIsLoadingValue(_ loading: Bool) {
+        self.isLoading = loading
+        print("loading: \(self.isLoading)")
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel()
     @State var isPrensentingDetailModal = false
+    @State var businessIdForDetail: String = ""
     
     var body: some View {
         VStack{
@@ -22,11 +23,6 @@ struct ContentView: View {
                     .frame(width: 120, height: 70)
 
                 Spacer()
-
-//                Text("For You")
-//                    .fontWeight(.bold)
-//                    .font(.title)
-//                    .italic()
                 
                 Spacer()
                 
@@ -38,7 +34,6 @@ struct ContentView: View {
                 }
                 .padding()
             }
-//            .padding()
             
             // Card
             ZStack{
@@ -54,14 +49,13 @@ struct ContentView: View {
                         }
                         else {
                             ForEach(businesses) { business in
-                               CardView(card: business)
+                                CardView(card: business, businessId: $businessIdForDetail, isPrensentingDetailModal: $isPrensentingDetailModal)
                                    .environmentObject(homeViewModel)
                                    .padding(8)
                                    .onTapGesture {
                                        self.isPrensentingDetailModal.toggle()
                                    }
                            }
-                           
                         }
                     }
                     else {
@@ -112,7 +106,7 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .sheet(isPresented: $isPrensentingDetailModal) {
-            DetailModal(isPresentingDetailModal: $isPrensentingDetailModal)
+            DetailModal(isPresentingDetailModal: $isPrensentingDetailModal, businessId: businessIdForDetail)
             
         }
     }

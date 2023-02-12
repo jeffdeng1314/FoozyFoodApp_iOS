@@ -9,12 +9,18 @@ import SwiftUI
 struct CardView: View {
     
     @State var card: Card
+    @Binding var businessId: String
+    @Binding var isPrensentingDetailModal: Bool
     @EnvironmentObject var homeViewModel: HomeViewModel
     
     var body: some View {
         ZStack(alignment: .leading) {
             DisplayCard(card: card)
             DisplayCardInfo(card: card)
+            if isPrensentingDetailModal {
+                let _ = assignBussinessId()
+            }
+            
         }
         .cornerRadius(10)
         // step 1 - ZStack follows the coordinate of the card
@@ -83,7 +89,7 @@ struct CardView: View {
         }
     }
     
-    func swipeUpdate(position cardPosition: CGFloat, card: Card) {
+    private func swipeUpdate(position cardPosition: CGFloat, card: Card) {
         switch cardPosition {
         case 500...:
             let _ = print("Swiped right! Like")
@@ -101,6 +107,12 @@ struct CardView: View {
         }
         
     }
+    
+    private func assignBussinessId() {
+        DispatchQueue.main.async {
+            self.businessId = self.card.businessId
+        }
+    }
 }
 
 
@@ -108,7 +120,7 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
-        CardView(card: card)
+        CardView(card: card, businessId: .constant("123"), isPrensentingDetailModal: .constant(true))
     }
 }
 
