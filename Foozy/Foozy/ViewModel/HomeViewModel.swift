@@ -13,29 +13,29 @@ class HomeViewModel: ObservableObject {
     @Published var fetchedBusinesses: [Card]? = []
     @Published var isLoading: Bool = true
     
-    let apiKey: String
-    let headers: [String : String]
-    let url: String
-    var location: String?
-    var latitutde: String?
-    var longitude: String?
-    var queryLimit: Int?
-    var categories: String?
-    
-    init() {
-        apiKey = (Bundle.main.infoDictionary?["YELP_API_KEY"] as? String)!
-        
-        headers = [
-          "accept": "application/json",
-          "Authorization": "Bearer \(apiKey)"
-        ]
-        
-        queryLimit = 30
-        
-        categories = "food,foodtrucks,bubbletea"
-        
-        url = "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(categories!)&limit=\(queryLimit!)"
-    }
+//    let apiKey: String
+//    let headers: [String : String]
+//    let url: String
+//    var location: String?
+//    var latitutde: String?
+//    var longitude: String?
+//    var queryLimit: Int?
+//    var categories: String?
+//
+//    init() {
+//        apiKey = (Bundle.main.infoDictionary?["YELP_API_KEY"] as? String)!
+//
+//        headers = [
+//          "accept": "application/json",
+//          "Authorization": "Bearer \(apiKey)"
+//        ]
+//
+//        queryLimit = 30
+//
+//        categories = "food,foodtrucks,bubbletea"
+//
+//        url = "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(categories!)&limit=\(queryLimit!)"
+//    }
     
     
     func updateBusinesses(card business: Card) {
@@ -56,7 +56,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchYelpBusinesses(cityName: String) {
-        let urlString = "\(url)&location=\(cityName)"
+        let urlString = "\(Constants.API_URL_SEARCH_BUSINESS)&location=\(cityName)"
         performRestRequest(with: urlString)
     }
     
@@ -67,8 +67,8 @@ class HomeViewModel: ObservableObject {
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             
-            request.httpMethod = "GET"
-            request.allHTTPHeaderFields = headers
+            request.httpMethod = Constants.REQUEST_METHOD_GET
+            request.allHTTPHeaderFields = Constants.HEADERS
 
             let session = URLSession.shared
             let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { [weak self] (data, response, error) -> Void in

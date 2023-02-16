@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DetailModal: View {
     @Binding var isPresentingDetailModal: Bool
-    @State var businessId: String
+    @State var cardForDetail: Card
+    @StateObject var detailViewModel = DetailViewModel()
     
     var body: some View {
         
@@ -25,33 +26,38 @@ struct DetailModal: View {
                 }
                 
             }
-            
-//            Divider()
+
             ExDivider()
 
             ScrollView() {
                 ZStack(alignment: .bottom) {
                     if isPresentingDetailModal {
-                        Color.black
-                            .opacity(0.3)
-                            .onTapGesture {
-                                isPresentingDetailModal = false
-                            }
                         
-                        VStack {
-                            ForEach (0..<10) { index in
-                                Text("我靠💩")
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .multilineTextAlignment(.center)
-                                    .padding()
-                                    .frame(width: 300, height: 200)
-                                    .background(Rectangle().fill(Color.orange).shadow(radius: 3))
-                            }
+                        if detailViewModel.isLoading {
+                            let _ = print("Loading Detail Page")
+                            ProgressView("Loading")
+                                .frame(width: 400, height: 700)
+                            
                         }
-                        let _ = print("businessIdForDetail: \(businessId)")
+                        else {
+                            Color.black
+                                .opacity(0.3)
+                                .onTapGesture {
+                                    isPresentingDetailModal = false
+                                }
+                            
+                            VStack {
+                                Text(detailViewModel.detail!.url)
+                            }
+                            let _ = print("detail: \(detailViewModel.detail!)")
+                        }
+                        
                     }
                     
                 }
+            }
+            .onAppear {
+                detailViewModel.fetchYelpBusinessDetail(card: cardForDetail)
             }
         }
 
@@ -77,7 +83,8 @@ struct ExDivider: View {
 }
 
 struct DetailModal_Previews: PreviewProvider {
+    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
-        DetailModal(isPresentingDetailModal: .constant(true), businessId: "13")
+        DetailModal(isPresentingDetailModal: .constant(true), cardForDetail: card)
     }
 }

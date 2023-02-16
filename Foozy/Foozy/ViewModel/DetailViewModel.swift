@@ -8,103 +8,81 @@
 import Foundation
 import SwiftUI
 
-struct DetailViewModel {
+class DetailViewModel: ObservableObject {
     // Storing all the fetched cards here
     
-    let apiKey: String
-    let headers: [String : String]
-    let url: String
-    var location: String?
-    var latitutde: String?
-    var longitude: String?
-    var queryLimit: Int?
-
-    init() {
-        
-        apiKey = (Bundle.main.infoDictionary?["YELP_API_KEY"] as? String)!
-        
-        headers = [
-          "accept": "application/json",
-          "Authorization": "Bearer \(apiKey)"
-        ]
-        
-        queryLimit = 1
-        
-        url = "https://api.yelp.com/v3/businesses/search?sort_by=best_match&limit=\(queryLimit!)"
-        
-        let _ = print("headers: \(headers)")
+    @Published var isLoading: Bool = true
+    @Published var detail: BusinessDetail?
+    
+    func fetchYelpBusinessDetail(card: Card) {
+        let urlString = Constants.API_URL_GET_BUSINESS_BY_ID + card.businessId
+        performRestRequest(with: urlString, card: card)
     }
     
-    
-    func fetchYelpBusinesses(cityName: String) -> [Card]? {
-        let urlString = "\(url)&location=\(cityName)"
-        print("urlString: \(urlString)")
-        return performRestRequest(with: urlString)
-    }
-    
-    
-    private func performRestRequest(with yelpUrl: String) -> [Card]? {
-        var result: [Card]?
-        
+    private func performRestRequest(with yelpUrl: String, card: Card) {
         if let url = URL(string: yelpUrl) {
             
             let request = NSMutableURLRequest(url: url,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             
-            request.httpMethod = "GET"
-            request.allHTTPHeaderFields = headers
+            request.httpMethod = Constants.REQUEST_METHOD_GET
+            request.allHTTPHeaderFields = Constants.HEADERS
 
             let session = URLSession.shared
-            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { [weak self] (data, response, error) -> Void in
                 if (error != nil) {
                     print(error as Any)
                     return
                 }
                 
                 if let safeData = data {
-                    if let cards = self.parseJSON(safeData){
-                        result = cards
+                    if let details = self?.parseJSON(businessesDetailData: safeData, card: card){
+                        DispatchQueue.main.async {
+                            self?.detail = details
+                            self!.isLoading = false
+                        }
+                        return
                     }
                 }
-                
-//                let httpResponse = response as? HTTPURLResponse
-//                  print(httpResponse!)
+
               
             })
             
             dataTask.resume()
-            
-            return result
+
         }
         else {
             print("url not working....")
-            return nil
         }
     }
     
     
-    private func parseJSON(_ businessesData: Data) -> [Card]? {
+    private func parseJSON(businessesDetailData: Data, card: Card) -> BusinessDetail? {
         let decoder = JSONDecoder()
         
         do {
-            let decodedData = try decoder.decode(BusinessesData.self, from: businessesData)
-            var cards: [Card] = []
+            let decodedData = try decoder.decode(BusinessDetailData.self, from: businessesDetailData)
             
-            for business in decodedData.businesses {
-                var categories: [String] = []
-                for each in business.categories {
-                    // getting all of the categories into a string list
-                    categories.append(each.title)
+            let phone = Phone(number: decodedData.phone, displayPhone: decodedData.display_phone)
+            var hours: [Hour] = []
+            
+            for each in decodedData.hours {
+                var schedules: [Schedule] = []
+                for day in each.open {
+                     let x = Schedule(isOvernight: day.is_overnight, start: day.start, end: day.end, day: day.day)
+                    schedules.append(x)
                 }
-                
-                let card = Card(businessId: business.id, name: business.name, image:
-                                    business.image_url, rating: business.rating, reviewCounts: business.review_count, categories: categories )
-                
-                cards.append(card)
+                let hour = Hour(open: schedules, isOpenNow: each.is_open_now)
+                hours.append(hour)
             }
-            print("!!!fetched cards: \(cards)\n")
-            return cards
+            
+            let xyLocation: Coordinate = Coordinate(latitude: decodedData.coordinates.latitude, longitude: decodedData.coordinates.longitude)
+            
+            
+            let businessDetail = BusinessDetail(name: card.name, phone: phone, reviews: nil, image: card.image, photos: decodedData.photos, price: decodedData.price, hours: hours, categories: card.categories, coordinate: xyLocation, address: decodedData.location.display_address, url: decodedData.url, isClosed: decodedData.is_closed)
+
+            return businessDetail
             
         } catch {
             print("Error while parsing JSON... error=\(error)")

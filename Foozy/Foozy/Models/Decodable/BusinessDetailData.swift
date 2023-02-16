@@ -34,8 +34,8 @@ struct Open: Decodable {
 }
 
 struct Coordinates: Decodable {
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
 }
 
 struct Location: Decodable {

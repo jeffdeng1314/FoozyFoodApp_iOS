@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel()
     @State var isPrensentingDetailModal = false
-    @State var businessIdForDetail: String = ""
+    @State var cardForDetail: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     
     var body: some View {
         VStack{
@@ -38,7 +38,7 @@ struct ContentView: View {
             // Card
             ZStack{
                 if homeViewModel.isLoading {
-                    let _ = print("loading?????????")
+                    let _ = print("Loading Home Page")
                     ProgressView("Loading")
                 }
                 else {
@@ -49,7 +49,7 @@ struct ContentView: View {
                         }
                         else {
                             ForEach(businesses) { business in
-                                CardView(card: business, businessId: $businessIdForDetail, isPrensentingDetailModal: $isPrensentingDetailModal)
+                                CardView(card: business, cardForDetail: $cardForDetail, isPrensentingDetailModal: $isPrensentingDetailModal)
                                    .environmentObject(homeViewModel)
                                    .padding(8)
                                    .onTapGesture {
@@ -106,7 +106,7 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .sheet(isPresented: $isPrensentingDetailModal) {
-            DetailModal(isPresentingDetailModal: $isPrensentingDetailModal, businessId: businessIdForDetail)
+            DetailModal(isPresentingDetailModal: $isPrensentingDetailModal, cardForDetail: cardForDetail)
             
         }
     }

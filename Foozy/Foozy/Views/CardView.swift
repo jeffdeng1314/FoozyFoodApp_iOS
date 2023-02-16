@@ -9,7 +9,7 @@ import SwiftUI
 struct CardView: View {
     
     @State var card: Card
-    @Binding var businessId: String
+    @Binding var cardForDetail: Card
     @Binding var isPrensentingDetailModal: Bool
     @EnvironmentObject var homeViewModel: HomeViewModel
     
@@ -18,7 +18,7 @@ struct CardView: View {
             DisplayCard(card: card)
             DisplayCardInfo(card: card)
             if isPrensentingDetailModal {
-                let _ = assignBussinessId()
+                let _ = assignCard()
             }
             
         }
@@ -108,9 +108,9 @@ struct CardView: View {
         
     }
     
-    private func assignBussinessId() {
+    private func assignCard() {
         DispatchQueue.main.async {
-            self.businessId = self.card.businessId
+            self.cardForDetail = self.card
         }
     }
 }
@@ -120,7 +120,7 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
-        CardView(card: card, businessId: .constant("123"), isPrensentingDetailModal: .constant(true))
+        CardView(card: card, cardForDetail: .constant(card), isPrensentingDetailModal: .constant(true))
     }
 }
 

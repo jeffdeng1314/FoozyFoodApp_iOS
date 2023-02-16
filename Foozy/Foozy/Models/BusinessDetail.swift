@@ -6,17 +6,17 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct BusinessDetail {
     let name: String
-    let phone: Phone?
-    let reviews: Reviews
+    let phone: Phone
+    let reviews: Reviews?
+    let image: String
     let photos: [String]
     let price: String
     let hours: [Hour]
     let categories: [String]
-    let coordinates: [Coordinate]
+    let coordinate: Coordinate
     let address: [String]
     let url: String
     let isClosed: Bool
@@ -24,13 +24,13 @@ struct BusinessDetail {
 
 
 struct Coordinate {
-    let latitude: String
-    let longitude: String
+    let latitude: Double
+    let longitude: Double
 }
 
 struct Reviews {
-    let rating: CGFloat
-    let reviewCounts: Int
+    let rating: CGFloat?
+    let reviewCounts: Int?
     let review: [Review]
 }
 
@@ -42,8 +42,8 @@ struct Review {
 }
 
 struct Phone {
-    let number: String?
-    let displayPhone: String?
+    let number: String
+    let displayPhone: String
 }
 
 struct Hour {

@@ -21,6 +21,7 @@
 		910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B9279296BCF3E00CE6912 /* ErrorView.swift */; };
 		910B927C296C01EC00CE6912 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927B296C01EC00CE6912 /* DetailViewModel.swift */; };
 		912149FB298263D4007B11AC /* BusinessDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912149FA298263D4007B11AC /* BusinessDetailData.swift */; };
+		91660EC2299A0C3600D18C87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91660EC1299A0C3600D18C87 /* Constants.swift */; };
 		919ACAF1298513280074593E /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919ACAF0298513280074593E /* LaunchScreenView.swift */; };
 		91A3B7EC297231350066A4E1 /* DetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A3B7EB297231350066A4E1 /* DetailModal.swift */; };
 		91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B136A9296FA05100AE24CB /* BusinessesData.swift */; };
@@ -64,6 +65,7 @@
 		910B927E296D5DFF00CE6912 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		910B927F296D63F600CE6912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		912149FA298263D4007B11AC /* BusinessDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailData.swift; sourceTree = "<group>"; };
+		91660EC1299A0C3600D18C87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		919ACAF0298513280074593E /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		91A3B7EB297231350066A4E1 /* DetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModal.swift; sourceTree = "<group>"; };
 		91B136A9296FA05100AE24CB /* BusinessesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesData.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				910B9279296BCF3E00CE6912 /* ErrorView.swift */,
+				91660EC1299A0C3600D18C87 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */,
 				91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */,
 				910B927829640E9200CE6912 /* CardView.swift in Sources */,
+				91660EC2299A0C3600D18C87 /* Constants.swift in Sources */,
 				91B90D2129810D1800CB0127 /* BusinessDetail.swift in Sources */,
 				910B92702963D28900CE6912 /* Card.swift in Sources */,
 			);
