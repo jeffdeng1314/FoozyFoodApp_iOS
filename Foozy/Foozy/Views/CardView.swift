@@ -39,7 +39,7 @@ struct CardView: View {
                 })
                 .onEnded({ value in
                     // do something when the user stops dragging
-                    withAnimation(.interpolatingSpring(stiffness: 50, damping: 8)) {
+                    withAnimation(.interpolatingSpring(stiffness: 50, damping: 8, initialVelocity: 5)) {
                         switch value.translation.width {
                         case 0...100:
                             card.x = 0; card.y = 0; card.degree = 0
@@ -118,9 +118,8 @@ struct CardView: View {
 
 
 struct CardView_Previews: PreviewProvider {
-    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
-        CardView(card: card, cardForDetail: .constant(card), isPrensentingDetailModal: .constant(true))
+        CardView(card: MockObjects.fakeCard, cardForDetail: .constant(MockObjects.fakeCard), isPrensentingDetailModal: .constant(true))
     }
 }
 

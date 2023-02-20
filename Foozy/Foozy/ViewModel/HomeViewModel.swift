@@ -13,38 +13,11 @@ class HomeViewModel: ObservableObject {
     @Published var fetchedBusinesses: [Card]? = []
     @Published var isLoading: Bool = true
     
-//    let apiKey: String
-//    let headers: [String : String]
-//    let url: String
-//    var location: String?
-//    var latitutde: String?
-//    var longitude: String?
-//    var queryLimit: Int?
-//    var categories: String?
-//
-//    init() {
-//        apiKey = (Bundle.main.infoDictionary?["YELP_API_KEY"] as? String)!
-//
-//        headers = [
-//          "accept": "application/json",
-//          "Authorization": "Bearer \(apiKey)"
-//        ]
-//
-//        queryLimit = 30
-//
-//        categories = "food,foodtrucks,bubbletea"
-//
-//        url = "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(categories!)&limit=\(queryLimit!)"
-//    }
-    
-    
     func updateBusinesses(card business: Card) {
         print("card: \(business.name)")
         
         
         let displayBusinessId = displayBusinesses.last?.businessId
-        
-        print("id: \(displayBusinessId!) <-> lastId: \(displayBusinesses.last!.businessId)")
         
         if business.businessId == displayBusinessId {
             print("equal! Removed!")
@@ -56,7 +29,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchYelpBusinesses(cityName: String) {
-        let urlString = "\(Constants.API_URL_SEARCH_BUSINESS)&location=\(cityName)"
+        let urlString = Constants.API_URL_SEARCH_BUSINESS(location: cityName)
         performRestRequest(with: urlString)
     }
     
@@ -113,8 +86,14 @@ class HomeViewModel: ObservableObject {
                     categories.append(each.title)
                 }
                 
-                let card = Card(businessId: business.id, name: business.name, image:
-                                    business.image_url, rating: business.rating, reviewCounts: business.review_count, categories: categories )
+                let card = Card(
+                    businessId: business.id,
+                    name: business.name,
+                    image: business.image_url,
+                    rating: business.rating,
+                    reviewCounts: business.review_count,
+                    categories: categories
+                )
                 
                 cards.append(card)
             }

@@ -47,8 +47,9 @@ struct DetailModal: View {
                                 }
                             
                             VStack {
-                                Text(detailViewModel.detail!.url)
+                                CarouselCardView(businessDetail: detailViewModel.detail!)
                             }
+                            
                             let _ = print("detail: \(detailViewModel.detail!)")
                         }
                         
@@ -83,8 +84,7 @@ struct ExDivider: View {
 }
 
 struct DetailModal_Previews: PreviewProvider {
-    static var card: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     static var previews: some View {
-        DetailModal(isPresentingDetailModal: .constant(true), cardForDetail: card)
+        DetailModal(isPresentingDetailModal: .constant(true), cardForDetail: MockObjects.fakeCard)
     }
 }

@@ -15,7 +15,7 @@ class DetailViewModel: ObservableObject {
     @Published var detail: BusinessDetail?
     
     func fetchYelpBusinessDetail(card: Card) {
-        let urlString = Constants.API_URL_GET_BUSINESS_BY_ID + card.businessId
+        let urlString = Constants.API_URL_GET_BUSINESS_BY_ID(card.businessId)
         performRestRequest(with: urlString, card: card)
     }
     
@@ -80,7 +80,20 @@ class DetailViewModel: ObservableObject {
             let xyLocation: Coordinate = Coordinate(latitude: decodedData.coordinates.latitude, longitude: decodedData.coordinates.longitude)
             
             
-            let businessDetail = BusinessDetail(name: card.name, phone: phone, reviews: nil, image: card.image, photos: decodedData.photos, price: decodedData.price, hours: hours, categories: card.categories, coordinate: xyLocation, address: decodedData.location.display_address, url: decodedData.url, isClosed: decodedData.is_closed)
+            let businessDetail = BusinessDetail(
+                name: card.name,
+                phone: phone,
+                reviews: nil,
+                image: card.image,
+                photos: decodedData.photos,
+                price: decodedData.price,
+                hours: hours,
+                categories: card.categories,
+                coordinate: xyLocation,
+                address: decodedData.location.display_address,
+                url: decodedData.url,
+                isClosed: decodedData.is_closed
+            )
 
             return businessDetail
             
