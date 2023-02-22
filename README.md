@@ -1,2 +1,2 @@
-# FoozyFoodApp
+# Foozy
 Food explore app
