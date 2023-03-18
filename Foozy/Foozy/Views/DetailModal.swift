@@ -27,7 +27,8 @@ struct DetailModal: View {
                 
             }
 
-            ExDivider()
+            Spacer()
+//            ExDivider()
 
             ScrollView() {
                 ZStack(alignment: .bottom) {
@@ -40,11 +41,6 @@ struct DetailModal: View {
                             
                         }
                         else {
-                            Color.black
-                                .opacity(0.3)
-                                .onTapGesture {
-                                    isPresentingDetailModal = false
-                                }
                             
                             VStack {
                                 CarouselCardView(businessDetail: detailViewModel.detail!)

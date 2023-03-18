@@ -12,17 +12,23 @@ struct CarouselCardView: View {
     @State var businessDetail:BusinessDetail
     var body: some View {
         VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(businessDetail.photos, id: \.self) { image in
-                        RetrieveImage(imageUrl: image).padding(6)
+            TabView {
+                ForEach(businessDetail.photos, id: \.self) { image in
+                    ZStack {
+                        RetrieveImage(imageUrl: image)
+                            .padding(6)
                     }
                 }
             }
-        }.frame(width: 300, height: 300)
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        }
+        .frame(height: 300)
         .cornerRadius(20)
-        .shadow(radius: 20)
+        .shadow(radius: 10)
+        
     }
+
 }
 
 struct RetrieveImage: View {
