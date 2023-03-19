@@ -24,16 +24,12 @@ struct DetailModal: View {
                         .frame(width: 60, height: 7)
                         .padding(20)
                 }
-                
             }
 
             Spacer()
-//            ExDivider()
-
             ScrollView() {
                 ZStack(alignment: .bottom) {
                     if isPresentingDetailModal {
-                        
                         if detailViewModel.isLoading {
                             let _ = print("Loading Detail Page")
                             ProgressView("Loading")
@@ -41,10 +37,26 @@ struct DetailModal: View {
                             
                         }
                         else {
-                            
                             VStack {
                                 CarouselCardView(businessDetail: detailViewModel.detail!)
+                                HStack{
+                                    Text("🍦 \(detailViewModel.detail!.name)")
+                                    Text(detailViewModel.detail!.price)
+
+                                }
+                                .padding(8)
+                                
+                                Text(detailViewModel.detail!.categories.joined(separator: ","))
+                                Text(detailViewModel.detail!.phone.displayPhone)
                             }
+//                            VStack {
+//                                HStack{
+//                                    Text(detailViewModel.detail!.name)
+//                                    Text(detailViewModel.detail!.price)
+//                                }
+//                                .padding(8)
+//
+//                            }
                             
                             let _ = print("detail: \(detailViewModel.detail!)")
                         }
