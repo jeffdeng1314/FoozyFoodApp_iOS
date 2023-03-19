@@ -28,6 +28,7 @@
 		91A84EC529A36B60006FFC41 /* MockObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A84EC429A36B60006FFC41 /* MockObjects.swift */; };
 		91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B136A9296FA05100AE24CB /* BusinessesData.swift */; };
 		91B90D2129810D1800CB0127 /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B90D2029810D1800CB0127 /* BusinessDetail.swift */; };
+		91DF426829C700D2003271CA /* LocationManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DF426729C700D2003271CA /* LocationManagerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		91A84EC429A36B60006FFC41 /* MockObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObjects.swift; sourceTree = "<group>"; };
 		91B136A9296FA05100AE24CB /* BusinessesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesData.swift; sourceTree = "<group>"; };
 		91B90D2029810D1800CB0127 /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
+		91DF426729C700D2003271CA /* LocationManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			children = (
 				910B927229640B4400CE6912 /* HomeViewModel.swift */,
 				910B927B296C01EC00CE6912 /* DetailViewModel.swift */,
+				91DF426729C700D2003271CA /* LocationManagerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91A84EC529A36B60006FFC41 /* MockObjects.swift in Sources */,
+				91DF426829C700D2003271CA /* LocationManagerViewModel.swift in Sources */,
 				912149FB298263D4007B11AC /* BusinessDetailData.swift in Sources */,
 				919ACAF1298513280074593E /* LaunchScreenView.swift in Sources */,
 				91A84EC229A3646F006FFC41 /* CarouselCardView.swift in Sources */,
@@ -541,6 +545,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foozy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show accurate contents.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +583,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foozy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show accurate contents.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -5,10 +5,12 @@
 //  Created by Jeff Deng on 1/2/23.
 //
 
+import MapKit
 import SwiftUI
 
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var locationManager = LocationManagerViewModel()
     @State var isPrensentingDetailModal = false
     @State var cardForDetail: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     
@@ -20,7 +22,7 @@ struct ContentView: View {
                 Image("foozy-word")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 70)
+                    .frame(width: 70, height: 40)
 
                 Spacer()
                 
@@ -66,7 +68,20 @@ struct ContentView: View {
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear{
-                homeViewModel.fetchYelpBusinesses(cityName: "Portland")
+                locationManager.checkIfLocationServicesIsEnabled()
+//                homeViewModel.fetchYelpBusinesses(
+//                    latitude: locationManager.lastLocation?.coordinate.latitude ?? 0,
+//                    longitude: locationManager.lastLocation?.coordinate.longitude ?? 0
+//                )
+                if locationManager.allowLocation {
+                    homeViewModel.fetchYelpBusinesses(
+                        latitude: locationManager.lastLocation?.coordinate.latitude ?? 0,
+                        longitude: locationManager.lastLocation?.coordinate.longitude ?? 0
+                    )
+                } else {
+                    print("waiting for allowLocation...")
+                }
+
             }
             
             

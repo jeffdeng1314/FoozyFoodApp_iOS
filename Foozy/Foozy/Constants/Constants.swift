@@ -23,10 +23,13 @@ struct Constants {
     
     static let QUERY_LIMIT = 30
     
-    static func API_URL_SEARCH_BUSINESS(location: String) -> String {
+    static func API_URL_SEARCH_BUSINESS_USING_LOCATION(location: String) -> String {
         return "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(Constants.CATEGORIES)&limit=\(Constants.QUERY_LIMIT)&location=\(location)"
     }
     
+    static func API_URL_SEARCH_BUSINESS_USING_COORDINATES(latitude: Double, longitude: Double) -> String {
+        return "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(Constants.CATEGORIES)&limit=\(Constants.QUERY_LIMIT)&latitude=\(latitude)&longitude=\(longitude)"
+    }
     
     static func API_URL_GET_BUSINESS_BY_ID(_ businessId: String) -> String {
         return "https://api.yelp.com/v3/businesses/\(businessId)"

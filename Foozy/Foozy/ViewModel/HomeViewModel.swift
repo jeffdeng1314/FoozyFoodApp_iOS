@@ -28,8 +28,17 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func fetchYelpBusinesses(cityName: String) {
-        let urlString = Constants.API_URL_SEARCH_BUSINESS(location: cityName)
+    func fetchYelpBusinesses(cityName: String? = nil, latitude: Double = 0, longitude: Double = 0 ) {
+        var urlString = ""
+        
+        if cityName != nil {
+            urlString = Constants.API_URL_SEARCH_BUSINESS_USING_LOCATION(location: cityName!)
+        } else {
+            urlString = Constants.API_URL_SEARCH_BUSINESS_USING_COORDINATES(latitude: latitude, longitude: longitude)
+        }
+        
+        print("fetching yelp businesses: cityName=\(cityName), lat=\(latitude), lon=\(longitude)")
+        
         performRestRequest(with: urlString)
     }
     

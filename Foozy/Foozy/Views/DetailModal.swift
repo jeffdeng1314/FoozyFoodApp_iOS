@@ -20,9 +20,9 @@ struct DetailModal: View {
                 VStack{
                     Capsule()
                         .fill(Color.secondary)
-                        .opacity(0.6)
-                        .frame(width: 60, height: 7)
-                        .padding(20)
+                        .opacity(0.2)
+                        .frame(width: 50, height: 5)
+                        .padding(10)
                 }
             }
 
@@ -71,7 +71,7 @@ struct DetailModal: View {
         }
 
         .background{
-            RoundedRectangle(cornerRadius: 15)
+            RoundedRectangle(cornerRadius: 25)
                 .foregroundColor(Color(UIColor.systemBackground))
         }
         .edgesIgnoringSafeArea(.bottom)
