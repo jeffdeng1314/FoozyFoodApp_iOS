@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel()
-    @StateObject var locationManager = LocationManagerViewModel()
+//    @StateObject var locationManager = LocationManagerViewModel()
     @State var isPrensentingDetailModal = false
     @State var cardForDetail: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     
@@ -68,20 +68,11 @@ struct ContentView: View {
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear{
-                locationManager.checkIfLocationServicesIsEnabled()
-//                homeViewModel.fetchYelpBusinesses(
-//                    latitude: locationManager.lastLocation?.coordinate.latitude ?? 0,
-//                    longitude: locationManager.lastLocation?.coordinate.longitude ?? 0
-//                )
-                if locationManager.allowLocation {
-                    homeViewModel.fetchYelpBusinesses(
-                        latitude: locationManager.lastLocation?.coordinate.latitude ?? 0,
-                        longitude: locationManager.lastLocation?.coordinate.longitude ?? 0
-                    )
-                } else {
-                    print("waiting for allowLocation...")
+                LocationManagerViewModel.shared.getUserLocation { location in
+                    DispatchQueue.main.async {
+                        homeViewModel.fetchYelpBusinesses(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                    }
                 }
-
             }
             
             
