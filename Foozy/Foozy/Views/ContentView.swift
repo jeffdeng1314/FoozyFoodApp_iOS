@@ -44,12 +44,11 @@ struct ContentView: View {
                     ProgressView("Loading")
                 }
                 else {
-                    if let businesses = homeViewModel.displayBusinesses {
+                    let businesses = homeViewModel.displayBusinesses
                         
                         if businesses.isEmpty {
                             ErrorView()
-                        }
-                        else {
+                        } else {
                             ForEach(businesses) { business in
                                 CardView(card: business, cardForDetail: $cardForDetail, isPrensentingDetailModal: $isPrensentingDetailModal)
                                    .environmentObject(homeViewModel)
@@ -57,12 +56,8 @@ struct ContentView: View {
                                    .onTapGesture {
                                        self.isPrensentingDetailModal.toggle()
                                    }
-                           }
+                            }
                         }
-                    }
-                    else {
-                        ProgressView()
-                    }
                 }
             }
             .padding(.vertical)

@@ -90,14 +90,14 @@ struct CardView: View {
     }
     
     private func swipeUpdate(position cardPosition: CGFloat, card: Card) {
-        switch cardPosition {
-        case 500...:
-            let _ = print("Swiped right! Like")
-        case ...(-500):
-            let _ = print("Swiped left! Dislike")
-        default:
-            return
-        }
+//        switch cardPosition {
+//        case 500...:
+//            let _ = print("Swiped right! Like")
+//        case ...(-500):
+//            let _ = print("Swiped left! Dislike")
+//        default:
+//            return
+//        }
         
         // The delay time is based on the animation
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
