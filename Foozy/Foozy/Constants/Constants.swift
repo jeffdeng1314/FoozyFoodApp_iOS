@@ -21,7 +21,7 @@ struct Constants {
     
     static let CATEGORIES = "food,foodtrucks,bubbletea"
     
-    static let QUERY_LIMIT = 2
+    static let QUERY_LIMIT = 10
     
     static func API_URL_SEARCH_BUSINESS_USING_LOCATION(location: String) -> String {
         return "https://api.yelp.com/v3/businesses/search?sort_by=best_match&categories=\(Constants.CATEGORIES)&limit=\(Constants.QUERY_LIMIT)&location=\(location)"

@@ -12,6 +12,10 @@ struct CardView: View, Identifiable {
     @State var cardForDetail: Card? = nil
     @Binding var isPresentingDetailModal: Bool
     @EnvironmentObject var homeViewModel: HomeViewModel
+    
+    @State private var xPosition: CGFloat = 0.0
+    @State private var yPosition: CGFloat = 0.0
+    @State private var degree: Double = 0.0
         
     var body: some View {
         ZStack(alignment: .leading) {
@@ -33,39 +37,40 @@ struct CardView: View, Identifiable {
         }
         .cornerRadius(10)
         // step 1 - ZStack follows the coordinate of the card
-        .offset(x: card.x, y: card.y)
-        .rotationEffect(.init(degrees: card.degree))
+        .offset(x: xPosition, y: yPosition)
+        .rotationEffect(.init(degrees: degree))
         // step 2 - gesture recognizer updates the coordinate values of the card model
         .gesture(
             DragGesture()
                 .onChanged({ value in
                     // user dragging the view
                     withAnimation(.default) {
-                        card.x = value.translation.width
-                        card.y = value.translation.height
-                        card.degree = 7 * (value.translation.width > 0 ? 1 : -1)
+                        xPosition = value.translation.width
+                        yPosition = value.translation.height
+                        degree = 7 * (value.translation.width > 0 ? 1 : -1)
                     }
                 })
                 .onEnded({ value in
                     // do something when the user stops dragging
                     withAnimation(.interpolatingSpring(stiffness: 50, damping: 8, initialVelocity: 5)) {
                         switch value.translation.width {
-                        case 0...100:
-                            card.x = 0; card.y = 0; card.degree = 0
-                        case (-100)...(-1):
-                            card.x = 0; card.y = 0; card.degree = 0
+                        case 0...100, (-100)...(-1):
+                            xPosition = 0; yPosition = 0; degree = 0
+//                        case (-100)...(-1):
+//                            card.x = 0; card.y = 0; card.degree = 0
                         case let x where x > 100:
-                            card.x = 500; card.degree = 12
+                            xPosition = 500; degree = 12
                         case let x where x < 100:
-                            card.x = -500; card.degree = -12
+                            xPosition = -500; degree = -12
                         default:
-                            card.x = 0; card.y = 0
+                            xPosition = 0; yPosition = 0; degree = 0
                         }
-                        swipeUpdate(position: card.x, card: card)
+                        
+                        swipeUpdate(position: xPosition, card: card)
                     }
                 })
         )
-        // Receiving Notifications Posted...
+        // Receiving Notifications Posted from the ContentView (the bottom buttons)
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("ACTIONFROMBUTTON"), object: nil)) {
             data in
             
@@ -76,24 +81,24 @@ struct CardView: View, Identifiable {
             let id = info["id"] as? String ?? ""
             let rightSwipe = info["rightSwipe"] as? Bool ?? false
             let width = CGFloat(500)
-            let degree = CGFloat(12)
+            let pos = Double(12)
             let height = CGFloat(0)
             
             if card.businessId == id {
                 withAnimation(.default) {
                     if rightSwipe {
-                        card.x = width
-                        card.y = height
-                        card.degree = degree
+                        xPosition = width
+                        yPosition = height
+                        degree = pos
                     }
                     else {
-                        card.x = (-width)
-                        card.y = height
-                        card.degree = (-degree)
+                        xPosition = (-width)
+                        yPosition = height
+                        degree = (-pos)
                     }
                     
                 }
-                swipeUpdate(position: card.x, card: card)
+                swipeUpdate(position: xPosition, card: card)
             }
         }
         .sheet(isPresented: $isPresentingDetailModal) {
@@ -126,8 +131,6 @@ struct CardView: View, Identifiable {
         
     }
 }
-
-
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
@@ -164,8 +167,8 @@ struct DisplayCardInfo: View {
     }
 }
 
+// MARK: - Drawing Constants
 struct AddCardGradient: View {
-    // MARK: - Drawing Constants
     let cardGradient = Gradient(colors: [Color.black.opacity(0), Color.black.opacity(0.5)])
     
     var body: some View {

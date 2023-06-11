@@ -114,6 +114,7 @@ extension ContentView {
     func doSwipe(rightSwipe: Bool = false) {
         // swipe
         guard let last = homeViewModel.displayBusinesses.last else {
+            print("doSwipe(): last card is nil")
             return
         }
         
