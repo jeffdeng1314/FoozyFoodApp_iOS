@@ -39,7 +39,7 @@ class DetailViewModel: ObservableObject {
                 if let safeData = data {
                     if let details = self?.parseJSON(businessesDetailData: safeData, card: card){
                         DispatchQueue.main.async {
-                            self?.detail = details
+                            self!.detail = details
                             self!.isLoading = false
                         }
                         return

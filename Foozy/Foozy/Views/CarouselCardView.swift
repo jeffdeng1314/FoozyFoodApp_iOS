@@ -21,11 +21,11 @@ struct CarouselCardView: View {
                 }
             }
             .tabViewStyle(.page)
-            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
         }
         .frame(height: 300)
-        .cornerRadius(20)
-        .shadow(radius: 10)
+//        .cornerRadius(20)
+        .shadow(radius: 300)
         
     }
 
@@ -43,6 +43,7 @@ struct RetrieveImage: View {
                 case .success(let image):
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
+                        .cornerRadius(8)
                 case .failure:
                     Image(systemName: "photo")
                 @unknown default:

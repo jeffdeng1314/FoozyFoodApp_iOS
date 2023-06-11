@@ -22,12 +22,14 @@
 		910B927C296C01EC00CE6912 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B927B296C01EC00CE6912 /* DetailViewModel.swift */; };
 		912149FB298263D4007B11AC /* BusinessDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912149FA298263D4007B11AC /* BusinessDetailData.swift */; };
 		91660EC2299A0C3600D18C87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91660EC1299A0C3600D18C87 /* Constants.swift */; };
+		919A1AC22A1F235B00A6C321 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A1AC12A1F235B00A6C321 /* NetworkProtocol.swift */; };
 		919ACAF1298513280074593E /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919ACAF0298513280074593E /* LaunchScreenView.swift */; };
-		91A3B7EC297231350066A4E1 /* DetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A3B7EB297231350066A4E1 /* DetailModal.swift */; };
+		91A3B7EC297231350066A4E1 /* DetailModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A3B7EB297231350066A4E1 /* DetailModalView.swift */; };
 		91A84EC229A3646F006FFC41 /* CarouselCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A84EC129A3646F006FFC41 /* CarouselCardView.swift */; };
 		91A84EC529A36B60006FFC41 /* MockObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A84EC429A36B60006FFC41 /* MockObjects.swift */; };
 		91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B136A9296FA05100AE24CB /* BusinessesData.swift */; };
 		91B90D2129810D1800CB0127 /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B90D2029810D1800CB0127 /* BusinessDetail.swift */; };
+		91DF426829C700D2003271CA /* LocationManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DF426729C700D2003271CA /* LocationManagerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,12 +70,14 @@
 		910B927F296D63F600CE6912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		912149FA298263D4007B11AC /* BusinessDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailData.swift; sourceTree = "<group>"; };
 		91660EC1299A0C3600D18C87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		919A1AC12A1F235B00A6C321 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		919ACAF0298513280074593E /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		91A3B7EB297231350066A4E1 /* DetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModal.swift; sourceTree = "<group>"; };
+		91A3B7EB297231350066A4E1 /* DetailModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModalView.swift; sourceTree = "<group>"; };
 		91A84EC129A3646F006FFC41 /* CarouselCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCardView.swift; sourceTree = "<group>"; };
 		91A84EC429A36B60006FFC41 /* MockObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObjects.swift; sourceTree = "<group>"; };
 		91B136A9296FA05100AE24CB /* BusinessesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesData.swift; sourceTree = "<group>"; };
 		91B90D2029810D1800CB0127 /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
+		91DF426729C700D2003271CA /* LocationManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		910B92402962D94F00CE6912 /* Foozy */ = {
 			isa = PBXGroup;
 			children = (
+				919A1AC02A1F230B00A6C321 /* Protocols */,
 				91A84EC329A36B3F006FFC41 /* Constants */,
 				910B927F296D63F600CE6912 /* Info.plist */,
 				910B927429640E1E00CE6912 /* Views */,
@@ -186,6 +191,7 @@
 			children = (
 				910B927229640B4400CE6912 /* HomeViewModel.swift */,
 				910B927B296C01EC00CE6912 /* DetailViewModel.swift */,
+				91DF426729C700D2003271CA /* LocationManagerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -196,7 +202,7 @@
 				910B926C2963BCDF00CE6912 /* StarsView.swift */,
 				910B92432962D94F00CE6912 /* ContentView.swift */,
 				910B927729640E9200CE6912 /* CardView.swift */,
-				91A3B7EB297231350066A4E1 /* DetailModal.swift */,
+				91A3B7EB297231350066A4E1 /* DetailModalView.swift */,
 				919ACAF0298513280074593E /* LaunchScreenView.swift */,
 				91A84EC129A3646F006FFC41 /* CarouselCardView.swift */,
 			);
@@ -209,6 +215,14 @@
 				910B927E296D5DFF00CE6912 /* Config.xcconfig */,
 			);
 			path = APIKeys;
+			sourceTree = "<group>";
+		};
+		919A1AC02A1F230B00A6C321 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				919A1AC12A1F235B00A6C321 /* NetworkProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		91A84EC329A36B3F006FFC41 /* Constants */ = {
@@ -360,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91A84EC529A36B60006FFC41 /* MockObjects.swift in Sources */,
+				91DF426829C700D2003271CA /* LocationManagerViewModel.swift in Sources */,
 				912149FB298263D4007B11AC /* BusinessDetailData.swift in Sources */,
 				919ACAF1298513280074593E /* LaunchScreenView.swift in Sources */,
 				91A84EC229A3646F006FFC41 /* CarouselCardView.swift in Sources */,
@@ -367,11 +382,12 @@
 				910B92442962D94F00CE6912 /* ContentView.swift in Sources */,
 				910B92422962D94F00CE6912 /* FoozyApp.swift in Sources */,
 				910B926D2963BCDF00CE6912 /* StarsView.swift in Sources */,
-				91A3B7EC297231350066A4E1 /* DetailModal.swift in Sources */,
+				91A3B7EC297231350066A4E1 /* DetailModalView.swift in Sources */,
 				910B927C296C01EC00CE6912 /* DetailViewModel.swift in Sources */,
 				910B927A296BCF3E00CE6912 /* ErrorView.swift in Sources */,
 				91B136AA296FA05100AE24CB /* BusinessesData.swift in Sources */,
 				910B927829640E9200CE6912 /* CardView.swift in Sources */,
+				919A1AC22A1F235B00A6C321 /* NetworkProtocol.swift in Sources */,
 				91660EC2299A0C3600D18C87 /* Constants.swift in Sources */,
 				91B90D2129810D1800CB0127 /* BusinessDetail.swift in Sources */,
 				910B92702963D28900CE6912 /* Card.swift in Sources */,
@@ -541,6 +557,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foozy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show accurate contents.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +595,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foozy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show accurate contents.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,21 +6,30 @@
 //
 import SwiftUI
 
-struct CardView: View {
-    
+struct CardView: View, Identifiable {
+    let id = UUID()
     @State var card: Card
-    @Binding var cardForDetail: Card
-    @Binding var isPrensentingDetailModal: Bool
+    @State var cardForDetail: Card? = nil
+    @Binding var isPresentingDetailModal: Bool
     @EnvironmentObject var homeViewModel: HomeViewModel
-    
+        
     var body: some View {
         ZStack(alignment: .leading) {
-            DisplayCard(card: card)
-            DisplayCardInfo(card: card)
-            if isPrensentingDetailModal {
-                let _ = assignCard()
+            
+            InformationView(card: card)
+                .onTapGesture {
+                    self.isPresentingDetailModal.toggle()
+                    let _ = print("tapped")
+                }
+            if isPresentingDetailModal {
+                let _ = DispatchQueue.main.async {
+                    self.cardForDetail = self.card
+                }
+                
+
             }
             
+            let _ = print("id: \(id), name: \(card.name)")
         }
         .cornerRadius(10)
         // step 1 - ZStack follows the coordinate of the card
@@ -87,14 +96,23 @@ struct CardView: View {
                 swipeUpdate(position: card.x, card: card)
             }
         }
+        .sheet(isPresented: $isPresentingDetailModal) {
+            if cardForDetail != nil {
+                DetailModalView(cardForDetail: cardForDetail!)
+            } else {
+                let _ = print("no cardForDetail")
+                ProgressView()
+            }
+            
+        }
     }
     
     private func swipeUpdate(position cardPosition: CGFloat, card: Card) {
         switch cardPosition {
         case 500...:
-            let _ = print("Swiped right! Like")
+            let _ = print("Right")
         case ...(-500):
-            let _ = print("Swiped left! Dislike")
+            let _ = print("Left")
         default:
             return
         }
@@ -107,19 +125,13 @@ struct CardView: View {
         }
         
     }
-    
-    private func assignCard() {
-        DispatchQueue.main.async {
-            self.cardForDetail = self.card
-        }
-    }
 }
 
 
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: MockObjects.fakeCard, cardForDetail: .constant(MockObjects.fakeCard), isPrensentingDetailModal: .constant(true))
+        CardView(card: MockObjects.fakeCard, cardForDetail: MockObjects.fakeCard, isPresentingDetailModal: .constant(true))
     }
 }
 
@@ -185,6 +197,16 @@ struct DisplayCard: View {
             }
 
             AddCardGradient()
+        }
+    }
+}
+
+struct InformationView: View {
+    let card: Card
+    var body: some View {
+        ZStack(alignment: .leading) {
+            DisplayCard(card: card)
+            DisplayCardInfo(card: card)
         }
     }
 }

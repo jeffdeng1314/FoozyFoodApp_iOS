@@ -5,12 +5,14 @@
 //  Created by Jeff Deng on 1/2/23.
 //
 
+import MapKit
 import SwiftUI
 
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel()
-    @State var isPrensentingDetailModal = false
-    @State var cardForDetail: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
+//    @StateObject var locationManager = LocationManagerViewModel()
+    @State var isPresentingDetailModal = false
+//    @State var cardForDetail: Card = Card(businessId: "123", name: "sakura noodle house", image: "sakura-noodle-house", rating: 4.5, reviewCounts: 8, categories: ["food","trunk"])
     
     var body: some View {
         VStack{
@@ -20,7 +22,7 @@ struct ContentView: View {
                 Image("foozy-word")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 70)
+                    .frame(width: 70, height: 40)
 
                 Spacer()
                 
@@ -42,33 +44,31 @@ struct ContentView: View {
                     ProgressView("Loading")
                 }
                 else {
-                    if let businesses = homeViewModel.displayBusinesses {
+                    let _ = print("in ContentView, else statement")
+                    let businesses = homeViewModel.displayBusinesses
                         
-                        if businesses.isEmpty {
-                            ErrorView()
+                    if businesses.isEmpty {
+                        ErrorView()
+                    } else {
+                        ForEach(businesses) { business in
+                            CardView(card: business, isPresentingDetailModal: $isPresentingDetailModal)
+                               .environmentObject(homeViewModel)
+                               .padding(8)
                         }
-                        else {
-                            ForEach(businesses) { business in
-                                CardView(card: business, cardForDetail: $cardForDetail, isPrensentingDetailModal: $isPrensentingDetailModal)
-                                   .environmentObject(homeViewModel)
-                                   .padding(8)
-                                   .onTapGesture {
-                                       self.isPrensentingDetailModal.toggle()
-                                   }
-                           }
-                        }
-                    }
-                    else {
-                        ProgressView()
                     }
                 }
             }
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear{
-                homeViewModel.fetchYelpBusinesses(cityName: "Portland")
+                let _ = print("onAppear content")
+                LocationManagerViewModel.shared.getUserLocation { location in
+                    print("location: \(location)")
+                    DispatchQueue.main.async {
+                        homeViewModel.fetchYelpBusinesses(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                    }
+                }
             }
-            
             
             // Bottom Stack
             HStack(spacing: 30){
@@ -82,7 +82,7 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    self.isPrensentingDetailModal.toggle()
+                    self.isPresentingDetailModal.toggle()
                 }) {
                     Image("info")
                         .resizable()
@@ -105,11 +105,10 @@ struct ContentView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .sheet(isPresented: $isPrensentingDetailModal) {
-            DetailModal(isPresentingDetailModal: $isPrensentingDetailModal, cardForDetail: cardForDetail)
-            
-        }
     }
+}
+
+extension ContentView {
     
     // removing cards when click to swipe
     func doSwipe(rightSwipe: Bool = false) {

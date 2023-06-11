@@ -28,8 +28,17 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func fetchYelpBusinesses(cityName: String) {
-        let urlString = Constants.API_URL_SEARCH_BUSINESS(location: cityName)
+    func fetchYelpBusinesses(cityName: String? = nil, latitude: Double = 0, longitude: Double = 0 ) {
+        var urlString = ""
+        
+        if cityName != nil {
+            urlString = Constants.API_URL_SEARCH_BUSINESS_USING_LOCATION(location: cityName!)
+        } else {
+            urlString = Constants.API_URL_SEARCH_BUSINESS_USING_COORDINATES(latitude: latitude, longitude: longitude)
+        }
+        
+        print("fetching yelp businesses: cityName=\(String(describing: cityName)), lat=\(latitude), lon=\(longitude)")
+        
         performRestRequest(with: urlString)
     }
     
@@ -53,8 +62,8 @@ class HomeViewModel: ObservableObject {
                 if let safeData = data {
                     if let cards = self?.parseJSON(safeData){
                         DispatchQueue.main.async {
-                            let merged = cards + self!.displayBusinesses
-                            self?.displayBusinesses = merged.reversed()
+                            let arrangedCards = cards.reversed()
+                            self?.displayBusinesses += arrangedCards
                             self!.isLoading = false
                         }
                         return
