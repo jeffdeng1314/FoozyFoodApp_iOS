@@ -55,20 +55,12 @@ struct ContentView: View {
                                .environmentObject(homeViewModel)
                                .padding(8)
                         }
+
                     }
                 }
             }
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear{
-                let _ = print("onAppear content")
-                LocationManagerViewModel.shared.getUserLocation { location in
-                    print("location: \(location)")
-                    DispatchQueue.main.async {
-                        homeViewModel.fetchYelpBusinesses(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                    }
-                }
-            }
             
             // Bottom Stack
             HStack(spacing: 30){
@@ -105,6 +97,15 @@ struct ContentView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .onAppear{
+            let _ = print("onAppear content")
+            LocationManagerViewModel.shared.getUserLocation { location in
+                print("location: \(location)")
+                DispatchQueue.main.async {
+                    homeViewModel.fetchYelpBusinesses(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                }
+            }
+        }
     }
 }
 
