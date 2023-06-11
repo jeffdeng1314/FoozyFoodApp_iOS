@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DetailModal: View {
-    @Binding var isPresentingDetailModal: Bool
+struct DetailModalView: View {
+//    @Binding var isPresentingDetailModal: Bool
     @State var cardForDetail: Card
     @StateObject var detailViewModel = DetailViewModel()
     
@@ -29,7 +29,7 @@ struct DetailModal: View {
             Spacer()
             ScrollView() {
                 ZStack(alignment: .bottom) {
-                    if isPresentingDetailModal {
+//                    if isPresentingDetailModal {
                         if detailViewModel.isLoading {
                             let _ = print("Loading Detail Page")
                             ProgressView("Loading")
@@ -40,7 +40,7 @@ struct DetailModal: View {
                             VStack {
                                 CarouselCardView(businessDetail: detailViewModel.detail!)
                                 HStack{
-                                    Text("🍦 \(detailViewModel.detail!.name)")
+                                    Text(detailViewModel.detail!.name)
                                     Text(detailViewModel.detail!.price)
 
                                 }
@@ -49,19 +49,11 @@ struct DetailModal: View {
                                 Text(detailViewModel.detail!.categories.joined(separator: ","))
                                 Text(detailViewModel.detail!.phone.displayPhone)
                             }
-//                            VStack {
-//                                HStack{
-//                                    Text(detailViewModel.detail!.name)
-//                                    Text(detailViewModel.detail!.price)
-//                                }
-//                                .padding(8)
-//
-//                            }
                             
                             let _ = print("detail: \(detailViewModel.detail!)")
                         }
                         
-                    }
+//                    }
                     
                 }
             }
@@ -93,6 +85,6 @@ struct ExDivider: View {
 
 struct DetailModal_Previews: PreviewProvider {
     static var previews: some View {
-        DetailModal(isPresentingDetailModal: .constant(true), cardForDetail: MockObjects.fakeCard)
+        DetailModalView(cardForDetail: MockObjects.fakeCard)
     }
 }
